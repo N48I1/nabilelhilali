@@ -21,15 +21,15 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: "Offensive Security",
-    skills: ["Nmap", "Metasploit", "Burp Suite", "Wireshark", "OpenVAS", "Nessus", "Hydra","Bettercap", "John the Ripper"]
+    skills: ["Nmap", "Metasploit", "Burp Suite", "Wireshark", "OpenVAS", "Nessus", "Hydra", "Bettercap", "John the Ripper"]
   },
   {
     category: "Network & Infra",
-    skills: ["TCP/IP", "VLANs", "VPNs", "Firewall Policies", "Cisco Switching/Routing", "FortiGate","FortiSwitch", "Docker","VMware", "Linux"]
+    skills: ["TCP/IP", "VLANs", "VPNs", "Firewall Policies", "Cisco Switching/Routing", "FortiGate", "FortiSwitch", "Docker", "VMware", "Linux"]
   },
   {
     category: "Dev & Scripting",
-    skills: ["Python","Java", "Bash", "PowerShell", "JavaScript", "React", "SQL", "Git"]
+    skills: ["Python", "Java", "Bash", "PowerShell", "JavaScript", "React", "SQL", "Git"]
   }
 ];
 
@@ -121,7 +121,7 @@ export const ENGAGEMENTS: Experience[] = [
     ]
   },
   {
-    role: "Co-lead – Linux 101: Beyond the GUI",
+    role: "Linux 101: Beyond the GUI",
     company: "ENIAD-Berkane",
     location: "Berkane",
     period: "Training Lead",
