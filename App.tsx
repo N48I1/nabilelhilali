@@ -50,11 +50,11 @@ const App: React.FC = () => {
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] bg-primary/20 rounded-full blur-[80px] -z-10"></div>
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[280px] md:h-[280px] border border-primary/30 rounded-full animate-pulse -z-10"></div>
 
-                            {/* Image Container */}
+                            {/* Image Container - thinner border */}
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                                className="relative w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-surfaceHighlight profile-shadow"
+                                className="relative w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-primary/50 profile-shadow"
                             >
                                 <img
                                     src={PROFILE.avatarUrl}
@@ -64,22 +64,24 @@ const App: React.FC = () => {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none"></div>
                             </motion.div>
 
-                            {/* Decorative Elements */}
+                            {/* Decorative Elements with enhanced shadows */}
                             <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1, duration: 0.5 }}
-                                className="absolute -bottom-6 -right-6 bg-surfaceHighlight border border-white/10 p-4 rounded-xl shadow-xl hidden md:block"
+                                initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ delay: 1, duration: 0.5, type: "spring" }}
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                className="absolute -bottom-4 -right-4 bg-surfaceHighlight border border-primary/20 p-3 rounded-xl hidden md:block icon-badge cursor-pointer"
                             >
-                                <Shield className="text-primary w-8 h-8" />
+                                <Shield className="text-primary w-7 h-7" />
                             </motion.div>
                             <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1.2, duration: 0.5 }}
-                                className="absolute -top-6 -left-6 bg-surfaceHighlight border border-white/10 p-4 rounded-xl shadow-xl hidden md:block"
+                                initial={{ opacity: 0, x: -20, scale: 0.8 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
+                                whileHover={{ scale: 1.1, rotate: -5 }}
+                                className="absolute -top-4 -left-4 bg-surfaceHighlight border border-secondary/20 p-3 rounded-xl hidden md:block icon-badge cursor-pointer"
                             >
-                                <Terminal className="text-blue-500 w-8 h-8" />
+                                <Terminal className="text-blue-500 w-7 h-7" />
                             </motion.div>
                         </motion.div>
 

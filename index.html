@@ -36,6 +36,8 @@
             'fade-in': 'fadeIn 0.5s ease-out forwards',
             'float': 'float 6s ease-in-out infinite',
             'scroll': 'scroll 40s linear infinite',
+            'border-glow': 'borderGlow 2s ease-in-out infinite',
+            'shimmer': 'shimmer 2s linear infinite',
           },
           keyframes: {
             fadeIn: {
@@ -49,6 +51,14 @@
             scroll: {
               '0%': { transform: 'translateX(0)' },
               '100%': { transform: 'translateX(-50%)' },
+            },
+            borderGlow: {
+              '0%, 100%': { 'box-shadow': '0 0 5px rgba(16, 185, 129, 0.3), inset 0 0 5px rgba(16, 185, 129, 0.1)' },
+              '50%': { 'box-shadow': '0 0 20px rgba(16, 185, 129, 0.5), inset 0 0 10px rgba(16, 185, 129, 0.2)' },
+            },
+            shimmer: {
+              '0%': { 'background-position': '-200% 0' },
+              '100%': { 'background-position': '200% 0' },
             }
           }
         }
@@ -133,10 +143,51 @@
       border: 1px solid var(--color-border);
       box-shadow: var(--shadow-card);
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Glowing border effect on hover */
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(16, 185, 129, 0.4) 50%, transparent 60%);
+      background-size: 200% 200%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+      animation: shimmer 2s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .glass-card:hover {
+      border-color: rgba(16, 185, 129, 0.3);
+      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15), var(--shadow-card);
+      transform: translateY(-2px);
     }
 
     .light .glass-card:hover {
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-color: rgba(5, 150, 105, 0.3);
     }
 
     /* Light mode specific fixes */
@@ -171,14 +222,76 @@
       color: #64748B;
     }
 
-    /* Enhanced profile picture shadow for dark mode */
+    /* Enhanced profile picture shadow - GLOW ALL AROUND */
     .profile-shadow {
-      box-shadow: var(--shadow-profile);
+      box-shadow: 0 0 0 4px var(--color-surfaceHighlight),
+        0 0 60px 10px rgba(16, 185, 129, 0.35),
+        0 0 100px 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .light .profile-shadow {
+      box-shadow: 0 0 0 4px var(--color-surfaceHighlight),
+        0 8px 40px -8px rgba(0, 0, 0, 0.15),
+        0 0 30px 5px rgba(5, 150, 105, 0.12);
+    }
+
+    /* Icon badge styling */
+    .icon-badge {
+      box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .light .icon-badge {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(5, 150, 105, 0.1);
+      border-color: rgba(0, 0, 0, 0.08);
     }
 
     /* Light mode section backgrounds */
     .light .bg-surface\/30 {
       background-color: rgba(226, 232, 240, 0.5);
+    }
+
+    /* Light mode primary glow fixes */
+    .light .bg-primary\/20 {
+      background-color: rgba(5, 150, 105, 0.15);
+    }
+
+    .light .bg-primary\/10 {
+      background-color: rgba(5, 150, 105, 0.08);
+    }
+
+    /* Light mode hover states */
+    .light .hover\:bg-white\/5:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .light .hover\:bg-white\/10:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Light mode blur adjustments */
+    .light .blur-\[80px\] {
+      filter: blur(60px);
+    }
+
+    /* Taskbar light mode */
+    .light .taskbar-container {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .light .taskbar-container .bg-white\/10 {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+
+    /* Tooltip light mode */
+    .light .bg-\[\#1E2430\] {
+      background-color: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #1E293B;
     }
   </style>
   <script type="importmap">
