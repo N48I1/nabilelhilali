@@ -29,6 +29,9 @@ export interface SkillCategory {
 export interface Certification {
   name: string;
   status: string;
+  logoUrl?: string;
+  pdfUrl?: string;
+  imageUrl?: string;
 }
 
 export interface Profile {

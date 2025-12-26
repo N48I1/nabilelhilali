@@ -13,18 +13,19 @@
     rel="stylesheet">
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            background: '#0B0E14',
-            surface: '#151A23',
-            surfaceHighlight: '#1E2430',
-            primary: '#10b981', // Emerald 500
-            primaryDark: '#059669',
-            secondary: '#3b82f6', // Blue 500
+            background: 'var(--color-background)',
+            surface: 'var(--color-surface)',
+            surfaceHighlight: 'var(--color-surfaceHighlight)',
+            primary: 'var(--color-primary)',
+            primaryDark: 'var(--color-primaryDark)',
+            secondary: 'var(--color-secondary)',
             text: {
-              main: '#F1F5F9',
-              muted: '#94A3B8'
+              main: 'var(--color-text-main)',
+              muted: 'var(--color-text-muted)'
             }
           },
           fontFamily: {
@@ -55,10 +56,43 @@
     }
   </script>
   <style>
+    /* Dark Mode Colors (Default) */
+    :root {
+      --color-background: #0B0E14;
+      --color-surface: #151A23;
+      --color-surfaceHighlight: #1E2430;
+      --color-primary: #10b981;
+      --color-primaryDark: #059669;
+      --color-secondary: #3b82f6;
+      --color-text-main: #F1F5F9;
+      --color-text-muted: #94A3B8;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --color-card-bg: rgba(21, 26, 35, 0.6);
+      --shadow-profile: 0 25px 50px -12px rgba(16, 185, 129, 0.25), 0 0 80px rgba(16, 185, 129, 0.15);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Light Mode Colors */
+    :root.light {
+      --color-background: #FAFBFC;
+      --color-surface: #FFFFFF;
+      --color-surfaceHighlight: #E8ECF0;
+      --color-primary: #059669;
+      --color-primaryDark: #047857;
+      --color-secondary: #2563EB;
+      --color-text-main: #1E293B;
+      --color-text-muted: #475569;
+      --color-border: rgba(0, 0, 0, 0.08);
+      --color-card-bg: rgba(255, 255, 255, 0.9);
+      --shadow-profile: 0 25px 50px -12px rgba(5, 150, 105, 0.2), 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
     body {
-      background-color: #0B0E14;
-      color: #F1F5F9;
+      background-color: var(--color-background);
+      color: var(--color-text-main);
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* Custom Scrollbar */
@@ -67,28 +101,84 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #0B0E14;
+      background: var(--color-background);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #1E2430;
+      background: var(--color-surfaceHighlight);
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #10b981;
+      background: var(--color-primary);
     }
 
+    /* Glass effects */
     .glass {
-      background: rgba(11, 14, 20, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(11, 14, 20, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .light .glass {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
     }
 
     .glass-card {
-      background: rgba(21, 26, 35, 0.6);
+      background: var(--color-card-bg);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+    }
+
+    .light .glass-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Light mode specific fixes */
+    .light .bg-white\/5 {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .light .bg-white\/10 {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .light .border-white\/5 {
+      border-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .light .border-white\/10 {
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .light .border-white\/20 {
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    /* Light mode text fixes */
+    .light .text-gray-300,
+    .light .text-gray-400 {
+      color: #475569;
+    }
+
+    .light .text-gray-500,
+    .light .text-gray-600 {
+      color: #64748B;
+    }
+
+    /* Enhanced profile picture shadow for dark mode */
+    .profile-shadow {
+      box-shadow: var(--shadow-profile);
+    }
+
+    /* Light mode section backgrounds */
+    .light .bg-surface\/30 {
+      background-color: rgba(226, 232, 240, 0.5);
     }
   </style>
   <script type="importmap">

@@ -26,10 +26,10 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-primaryDark rounded-lg flex items-center justify-center text-white font-bold font-mono">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-primaryDark rounded-lg flex items-center justify-center text-text-main font-bold font-mono">
                     N
                 </div>
-                <span className="font-bold text-lg tracking-tight text-white">N48I1</span>
+                <span className="font-bold text-lg tracking-tight text-text-main">N48I1</span>
             </a>
           </div>
           
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <a href="#contact" className="bg-primary hover:bg-primaryDark text-white px-4 py-2 rounded-md text-sm font-bold transition-all shadow-lg shadow-primary/20">
+              <a href="#contact" className="bg-primary hover:bg-primaryDark text-text-main px-4 py-2 rounded-md text-sm font-bold transition-all shadow-lg shadow-primary/20">
                 Contact Me
               </a>
             </div>
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-surfaceHighlight focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-text-main hover:bg-surfaceHighlight focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

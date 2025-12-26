@@ -11,7 +11,7 @@ export const PROFILE: Profile = {
   location: "Nador, Morocco",
   linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
   portfolio: "https://www.nabilelhilali.tech",
-  avatarUrl: "https://github.com/n48i1.png"
+  avatarUrl: "/assets/PERSO_RESUME.jpeg"
 };
 
 export const SKILLS: SkillCategory[] = [
@@ -102,10 +102,20 @@ export const EDUCATION: Education[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  { name: "Cisco CCNA", status: "In Progress" },
-  { name: "Fortinet NSE 1", status: "Completed" },
-  { name: "Fortinet NSE 2", status: "Completed" },
-  { name: "Fortinet NSE 3", status: "In Progress" }
+  { name: "Cisco CCNA", status: "In Progress", logoUrl: "/assets/CCNA_logo.png" },
+  {
+    name: "Fortinet NSE 1",
+    status: "Completed",
+    logoUrl: "/assets/NSE1_logo.png",
+    imageUrl: "/assets/Fortinet Certified Fundamentals in Cybersecurity_page-0001.jpg"
+  },
+  { name: "Fortinet NSE 2", status: "Completed", logoUrl: "/assets/NSE2_logo.png" },
+  {
+    name: "Fortinet NSE 3",
+    status: "In Progress",
+    logoUrl: "/assets/NSE3_logo.png",
+    imageUrl: "/assets/Fortinet Certified Associate in Cybersecurity_page-0001.jpg"
+  }
 ];
 
 export const ENGAGEMENTS: Experience[] = [

@@ -58,7 +58,7 @@ const Taskbar: React.FC = () => {
             className={`group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl transition-all duration-300 ease-out ${
               activeSection === item.id 
                 ? 'bg-white/10 text-primary -translate-y-1 sm:-translate-y-2 shadow-[0_5px_15px_rgba(16,185,129,0.2)]' 
-                : 'text-gray-400 hover:text-white hover:bg-white/5 hover:-translate-y-1'
+                : 'text-gray-400 hover:text-text-main hover:bg-white/5 hover:-translate-y-1'
             }`}
           >
             <item.icon 
@@ -71,7 +71,7 @@ const Taskbar: React.FC = () => {
             )}
 
             {/* Tooltip */}
-            <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-white text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
+            <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-text-main text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
               {item.label}
               {/* Tooltip Arrow */}
               <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2430] border-r border-b border-white/10 rotate-45"></span>
@@ -85,10 +85,10 @@ const Taskbar: React.FC = () => {
         {/* External/Action Links */}
         <button
             onClick={() => window.location.href = `mailto:nabil.elhilali.25@gmail.com`}
-            className="group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl text-gray-400 hover:text-white hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
+            className="group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl text-gray-400 hover:text-text-main hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
         >
              <Mail className="w-5 h-5 sm:w-[22px] sm:h-[22px] group-hover:scale-105 transition-transform" />
-             <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-white text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
+             <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-text-main text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
               Contact
               <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2430] border-r border-b border-white/10 rotate-45"></span>
             </span>
@@ -98,10 +98,10 @@ const Taskbar: React.FC = () => {
             href="https://github.com/n48i1"
             target="_blank"
             rel="noreferrer"
-            className="group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl text-gray-400 hover:text-white hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
+            className="group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl text-gray-400 hover:text-text-main hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
         >
              <Terminal className="w-5 h-5 sm:w-[22px] sm:h-[22px] group-hover:scale-105 transition-transform" />
-             <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-white text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
+             <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-text-main text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
               Terminal
               <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2430] border-r border-b border-white/10 rotate-45"></span>
             </span>
