@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { User, Cpu, Code, Shield, Mail, Monitor, Terminal, Users } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Taskbar: React.FC = () => {
+  const { language } = useLanguage();
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
@@ -28,12 +30,12 @@ const Taskbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { id: 'hero', icon: Monitor, label: 'System' },
-    { id: 'about', icon: User, label: 'Profile' },
+    { id: 'hero', icon: Monitor, label: language === 'fr' ? 'Système' : 'System' },
+    { id: 'about', icon: User, label: language === 'fr' ? 'Profil' : 'Profile' },
     { id: 'skills', icon: Cpu, label: 'Arsenal' },
-    { id: 'projects', icon: Code, label: 'Operations' },
-    { id: 'experience', icon: Shield, label: 'Logs' },
-    { id: 'engagements', icon: Users, label: 'Community' },
+    { id: 'projects', icon: Code, label: language === 'fr' ? 'Opérations' : 'Operations' },
+    { id: 'experience', icon: Shield, label: language === 'fr' ? 'Journaux' : 'Logs' },
+    { id: 'engagements', icon: Users, label: language === 'fr' ? 'Communauté' : 'Community' },
   ];
 
   const scrollToSection = (id: string) => {
@@ -56,8 +58,8 @@ const Taskbar: React.FC = () => {
             key={item.id}
             onClick={() => scrollToSection(item.id)}
             className={`group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl transition-all duration-300 ease-out ${activeSection === item.id
-                ? 'bg-white/10 text-primary -translate-y-1 sm:-translate-y-2 shadow-[0_5px_15px_rgba(16,185,129,0.2)]'
-                : 'text-gray-400 hover:text-text-main hover:bg-white/5 hover:-translate-y-1'
+              ? 'bg-white/10 text-primary -translate-y-1 sm:-translate-y-2 shadow-[0_5px_15px_rgba(16,185,129,0.2)]'
+              : 'text-gray-400 hover:text-text-main hover:bg-white/5 hover:-translate-y-1'
               }`}
           >
             <item.icon
@@ -88,7 +90,7 @@ const Taskbar: React.FC = () => {
         >
           <Mail className="w-5 h-5 sm:w-[22px] sm:h-[22px] group-hover:scale-105 transition-transform" />
           <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-text-main text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
-            Contact
+            {language === 'fr' ? 'Contact' : 'Contact'}
             <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2430] border-r border-b border-white/10 rotate-45"></span>
           </span>
         </button>

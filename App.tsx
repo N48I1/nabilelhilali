@@ -1,5 +1,6 @@
 import React from 'react';
-import { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, ENGAGEMENTS } from './constants';
+import { DATA } from './constants';
+import { useLanguage } from './context/LanguageContext';
 import ParticleBackground from './components/ParticleBackground';
 import Taskbar from './components/Taskbar';
 import TopBar from './components/TopBar';
@@ -27,6 +28,9 @@ const scaleOnHover = {
 };
 
 const App: React.FC = () => {
+    const { language } = useLanguage();
+    const { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, ENGAGEMENTS, UI } = DATA[language];
+
     return (
         <div className="min-h-screen bg-background font-sans selection:bg-primary selection:text-text-main pt-8">
             <ParticleBackground />
@@ -93,11 +97,11 @@ const App: React.FC = () => {
                             className="text-left space-y-8 order-2 md:order-2"
                         >
                             <motion.div variants={fadeInUp} className="inline-block px-3 py-1 rounded-full bg-surfaceHighlight border border-white/5 text-primary text-xs font-mono font-medium tracking-wide">
-                                STATUS: Open to a 4–6 month internship beginning February 2026.
+                                {UI.status}
                             </motion.div>
 
                             <div className="space-y-2">
-                                <motion.h2 variants={fadeInUp} className="text-lg text-primary font-mono">Hello, I'm</motion.h2>
+                                <motion.h2 variants={fadeInUp} className="text-lg text-primary font-mono">{UI.greeting}</motion.h2>
                                 <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-text-main leading-tight">
                                     {PROFILE.fullName}
                                 </motion.h1>
@@ -107,7 +111,7 @@ const App: React.FC = () => {
                             </div>
 
                             <motion.p variants={fadeInUp} className="text-text-muted text-lg max-w-xl leading-relaxed border-l-2 border-primary/50 pl-6">
-                                Cybersecurity engineering student aspiring <span className="text-text-main">Blue Team Operations</span>, <span className="text-text-main">SOC Architecture</span>, and <span className="text-text-main">Threat Intelligence</span>.
+                                {PROFILE.shortDescription}
                             </motion.p>
 
                             <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4 pt-2">
@@ -117,7 +121,7 @@ const App: React.FC = () => {
                                     href="#projects"
                                     className="bg-primary hover:bg-primaryDark text-text-main px-8 py-3 rounded-lg font-bold transition-colors shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]"
                                 >
-                                    View Operations
+                                    {UI.viewOperations}
                                 </motion.a>
                                 <motion.a
                                     whileHover={{ scale: 1.05 }}
@@ -125,7 +129,7 @@ const App: React.FC = () => {
                                     href={`mailto:${PROFILE.email}`}
                                     className="bg-surfaceHighlight hover:bg-surface border border-white/10 hover:border-white/20 text-text-main px-8 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
                                 >
-                                    <Mail size={18} /> Contact Me
+                                    <Mail size={18} /> {UI.contactMe}
                                 </motion.a>
                             </motion.div>
 
@@ -156,35 +160,35 @@ const App: React.FC = () => {
                                         <Terminal size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="text-text-main font-bold text-lg">System Specs</h3>
+                                        <h3 className="text-text-main font-bold text-lg">{UI.systemSpecs}</h3>
                                         <p className="text-text-muted text-sm font-mono">ENIAD // Engineering Student</p>
                                     </div>
                                 </div>
                                 <ul className="space-y-4 font-mono text-sm text-gray-300">
                                     <li className="flex justify-between border-b border-white/5 pb-2">
-                                        <span>Location</span> <span className="text-text-main">{PROFILE.location}</span>
+                                        <span>{UI.locationLabel}</span> <span className="text-text-main">{PROFILE.location}</span>
                                     </li>
                                     <li className="flex justify-between border-b border-white/5 pb-2">
-                                        <span>Focus</span> <span className="text-text-main">Defensive Security</span>
+                                        <span>{UI.focusLabel}</span> <span className="text-text-main">Defensive Security</span>
                                     </li>
                                     <li className="flex justify-between border-b border-white/5 pb-2">
-                                        <span>Experience</span> <span className="text-text-main">3 Years (Academic + Ops)</span>
+                                        <span>{UI.experienceLabel}</span> <span className="text-text-main">3 Years (Academic + Ops)</span>
                                     </li>
                                 </ul>
                                 <motion.a
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    href="/assets/resume.pdf"
-                                    download="Nabil_El_Hilali_Resume.pdf"
+                                    href={PROFILE.resumeUrl}
+                                    download={language === 'fr' ? "CV_Nabil_El_Hilali.pdf" : "Nabil_El_Hilali_Resume.pdf"}
                                     className="w-full mt-6 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-text-main py-3 rounded-lg transition-colors border border-white/5"
                                 >
-                                    <Download size={16} /> Download Resume
+                                    <Download size={16} /> {UI.downloadResume}
                                 </motion.a>
                             </div>
                         </motion.div>
                         <motion.div variants={fadeInUp}>
                             <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-6 flex items-center gap-3">
-                                <span className="w-8 h-1 bg-primary rounded-full"></span> About Me
+                                <span className="w-8 h-1 bg-primary rounded-full"></span> {UI.aboutMe}
                             </h2>
                             <p className="text-text-muted leading-relaxed text-lg mb-6">
                                 {PROFILE.description}
@@ -206,8 +210,8 @@ const App: React.FC = () => {
                             transition={{ duration: 0.6 }}
                             className="text-center mb-16"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4">Technical Arsenal</h2>
-                            <p className="text-text-muted max-w-2xl mx-auto">A comprehensive toolkit utilized for offensive and defensive security operations.</p>
+                            <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4">{UI.technicalArsenal}</h2>
+                            <p className="text-text-muted max-w-2xl mx-auto">{UI.technicalArsenalDesc}</p>
                         </motion.div>
 
                         <motion.div
@@ -254,11 +258,11 @@ const App: React.FC = () => {
                             className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"
                         >
                             <div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-2">Featured Operations</h2>
-                                <p className="text-text-muted">Key projects and deployments.</p>
+                                <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-2">{UI.featuredOperations}</h2>
+                                <p className="text-text-muted">{UI.featuredOperationsDesc}</p>
                             </div>
                             <a href="https://github.com/n48i1" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary hover:text-text-main transition-colors font-medium">
-                                View GitHub <ExternalLink size={16} />
+                                {UI.viewGithub} <ExternalLink size={16} />
                             </a>
                         </motion.div>
 
@@ -313,7 +317,7 @@ const App: React.FC = () => {
                             viewport={{ once: true }}
                             className="text-3xl md:text-4xl font-bold text-text-main mb-16 text-center"
                         >
-                            Professional Timeline
+                            {UI.professionalTimeline}
                         </motion.h2>
 
                         <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
@@ -359,7 +363,7 @@ const App: React.FC = () => {
                         >
                             <div className="bg-surfaceHighlight p-8 rounded-2xl border border-white/5">
                                 <h3 className="text-2xl font-bold text-text-main mb-8 flex items-center justify-center gap-3">
-                                    <GraduationCap size={28} className="text-primary" /> Academic Background
+                                    <GraduationCap size={28} className="text-primary" /> {UI.academicBackground}
                                 </h3>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {EDUCATION.map((edu, i) => (
@@ -388,9 +392,9 @@ const App: React.FC = () => {
                             className="text-center mb-16"
                         >
                             <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 flex items-center justify-center gap-3">
-                                <Users className="text-primary" /> Community & Teaching
+                                <Users className="text-primary" /> {UI.communityTeaching}
                             </h2>
-                            <p className="text-text-muted max-w-2xl mx-auto">Sharing knowledge and mentoring the next generation of engineers.</p>
+                            <p className="text-text-muted max-w-2xl mx-auto">{UI.communityTeachingDesc}</p>
                         </motion.div>
 
                         <div className="grid md:grid-cols-3 gap-8">
@@ -455,16 +459,41 @@ const App: React.FC = () => {
                 </section>
 
                 {/* Footer */}
-                <footer id="contact" className="py-12 border-t border-white/5 text-center relative z-10 bg-background mb-12">
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-text-main font-bold font-mono">N</div>
+                <footer id="contact" className="py-12 border-t border-white/5 relative z-10 bg-background mb-12">
+                    <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-text-main font-bold font-mono text-xl">N</div>
+                            <div>
+                                <h3 className="text-text-main font-bold text-lg">{PROFILE.fullName}</h3>
+                                <p className="text-text-muted text-xs">{PROFILE.title}</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-gray-400">
+                            <a href={`mailto:${PROFILE.email}`} className="flex items-center gap-2 hover:text-primary transition-colors">
+                                <Mail size={16} /> {PROFILE.email}
+                            </a>
+                            <span className="hidden md:block text-white/10">|</span>
+                            <div className="flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                {PROFILE.phone}
+                            </div>
+                            <span className="hidden md:block text-white/10">|</span>
+                            <div className="flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                                {PROFILE.location}
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white/10 hover:text-primary transition-colors">
+                                <Linkedin size={20} />
+                            </a>
+                            <a href="https://github.com/n48i1" target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white/10 hover:text-primary transition-colors">
+                                <Github size={20} />
+                            </a>
+                        </div>
                     </div>
-                    <p className="text-text-muted text-sm">
-                        Designed & Built by <span className="text-text-main">N48I1</span>
-                    </p>
-                    <p className="text-xs text-gray-600 mt-2 font-mono">
-                        © {new Date().getFullYear()} All Rights Reserved.
-                    </p>
                 </footer>
             </main>
         </div>

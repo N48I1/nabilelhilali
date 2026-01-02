@@ -39,6 +39,7 @@ export interface Profile {
   fullName: string;
   title: string;
   tagline: string;
+  shortDescription: string;
   description: string;
   email: string;
   phone: string;
@@ -46,4 +47,29 @@ export interface Profile {
   linkedin: string;
   portfolio: string;
   avatarUrl: string;
+  resumeUrl: string;
+}
+
+export interface UI {
+  status: string;
+  greeting: string;
+  viewOperations: string;
+  contactMe: string;
+  systemSpecs: string;
+  locationLabel: string;
+  focusLabel: string;
+  experienceLabel: string;
+  downloadResume: string;
+  aboutMe: string;
+  technicalArsenal: string;
+  technicalArsenalDesc: string;
+  featuredOperations: string;
+  featuredOperationsDesc: string;
+  viewGithub: string;
+  professionalTimeline: string;
+  academicBackground: string;
+  communityTeaching: string;
+  communityTeachingDesc: string;
+  designedBy: string;
+  rightsReserved: string;
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, Volume2, Battery, Cpu, Activity } from 'lucide-react';
+import { Wifi, Volume2, Battery, Cpu, Activity, Globe } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import { useLanguage } from '../context/LanguageContext';
 
 const TopBar: React.FC = () => {
+  const { language, toggleLanguage } = useLanguage();
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -61,6 +63,14 @@ const TopBar: React.FC = () => {
           <Volume2 size={12} className="text-text-muted hidden sm:block" />
           <Battery size={12} className="text-primary" />
           <ThemeToggle />
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 hover:text-white transition-colors ml-2"
+            title={language === 'en' ? 'Switch to French' : 'Passer en Anglais'}
+          >
+            <Globe size={12} className="text-primary" />
+            <span className="text-[10px] font-bold hidden sm:inline">{language.toUpperCase()}</span>
+          </button>
         </div>
 
         {/* Clock */}

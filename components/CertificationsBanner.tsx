@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { CERTIFICATIONS } from '../constants';
+import { DATA } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 import { Certification } from '../types';
 import { ShieldCheck, X, Maximize2 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -68,6 +69,7 @@ interface CertCardPropsExtended extends CertCardProps {
 
 const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [rect, setRect] = useState<DOMRect | null>(null);
   const [mounted, setMounted] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -110,8 +112,10 @@ const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => 
   };
 
   const handleMouseLeave = () => {
-    setIsExpanded(false);
-    onExpandChange?.(false);
+    if (!isFullScreen) {
+      setIsExpanded(false);
+      onExpandChange?.(false);
+    }
   };
 
   return (
@@ -130,7 +134,7 @@ const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => 
           <h3 className="font-sans font-bold text-base text-text-main leading-tight mb-2">
             {cert.name}
           </h3>
-          <div className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium tracking-wide border ${cert.status === 'Completed'
+          <div className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium tracking-wide border ${cert.status === 'Completed' || cert.status === 'Terminé'
             ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
             : 'bg-amber-500/10 text-amber-400 border-amber-500/20'
             }`}>
@@ -144,7 +148,7 @@ const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => 
         </div>
       </div>
 
-      {/* Expanded Portal Overlay */}
+      {/* Expanded Portal Overlay (Hover) */}
       {mounted && isExpanded && canExpand && rect && createPortal(
         <div className="fixed inset-0 z-[9999]" style={{ pointerEvents: 'none' }}>
           <motion.div
@@ -175,13 +179,25 @@ const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => 
                 <div className="w-6 h-6">{LogoComponent}</div>
                 <span className="text-xs font-bold text-text-main truncate max-w-[150px]">{cert.name}</span>
               </div>
-              <button onClick={() => setIsExpanded(false)}>
-                <X size={14} className="text-gray-400 hover:text-text-main" />
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsFullScreen(true)}
+                  className="p-1 hover:bg-white/10 rounded transition-colors"
+                  title="Fullscreen"
+                >
+                  <Maximize2 size={14} className="text-gray-400 hover:text-primary" />
+                </button>
+                <button onClick={() => setIsExpanded(false)}>
+                  <X size={14} className="text-gray-400 hover:text-text-main" />
+                </button>
+              </div>
             </div>
 
             {/* Certificate Image */}
-            <div className="flex-1 bg-white relative overflow-hidden">
+            <div
+              className="flex-1 bg-white relative overflow-hidden cursor-pointer"
+              onClick={() => setIsFullScreen(true)}
+            >
               <img
                 src={cert.imageUrl}
                 alt={`${cert.name} Certificate`}
@@ -192,11 +208,45 @@ const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => 
         </div>,
         document.body
       )}
+
+      {/* Full Screen Modal */}
+      {mounted && isFullScreen && createPortal(
+        <div
+          className="fixed inset-0 z-[20000] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
+          onClick={() => setIsFullScreen(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="relative max-w-full max-h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute -top-12 right-0 md:-right-12 p-2 bg-white/10 rounded-full hover:bg-white/20 text-white transition-colors"
+              onClick={() => setIsFullScreen(false)}
+            >
+              <X size={24} />
+            </button>
+            <img
+              src={cert.imageUrl}
+              alt={`${cert.name} Full Certificate`}
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/10"
+            />
+            <div className="mt-4 text-center">
+              <h3 className="text-xl font-bold text-white">{cert.name}</h3>
+            </div>
+          </motion.div>
+        </div>,
+        document.body
+      )}
     </>
   );
 };
 
 const CertificationsBanner: React.FC = () => {
+  const { language } = useLanguage();
+  const { CERTIFICATIONS } = DATA[language];
   const [isPaused, setIsPaused] = useState(false);
   const extendedCerts = [...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS, ...CERTIFICATIONS];
 
