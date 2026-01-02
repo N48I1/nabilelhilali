@@ -52,15 +52,15 @@ const ParticleBackground: React.FC = () => {
         const maxDistance = 200;
 
         if (distance < maxDistance) {
-            const forceDirectionX = dx / distance;
-            const forceDirectionY = dy / distance;
-            const force = (maxDistance - distance) / maxDistance;
-            // Move slightly away from mouse for a "repel" effect or towards for "attract"
-            // Let's do a gentle attraction to create a web effect around the mouse
-            if (distance > 50) { 
-                this.x += forceDirectionX * force * 2; 
-                this.y += forceDirectionY * force * 2;
-            }
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          const force = (maxDistance - distance) / maxDistance;
+          // Move slightly away from mouse for a "repel" effect or towards for "attract"
+          // Let's do a gentle attraction to create a web effect around the mouse
+          if (distance > 50) {
+            this.x += forceDirectionX * force * 2;
+            this.y += forceDirectionY * force * 2;
+          }
         }
       }
 
@@ -84,7 +84,7 @@ const ParticleBackground: React.FC = () => {
     const animate = () => {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particles.forEach(particle => {
         particle.update();
         particle.draw();
@@ -107,18 +107,18 @@ const ParticleBackground: React.FC = () => {
             ctx.stroke();
           }
         }
-        
+
         // Connect to mouse
         const dx = a.x - mouse.x;
         const dy = a.y - mouse.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < 200) {
-            ctx.strokeStyle = `rgba(16, 185, 129, ${0.25 * (1 - distance / 200)})`;
-            ctx.lineWidth = 1.5;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
+          ctx.strokeStyle = `rgba(16, 185, 129, ${0.25 * (1 - distance / 200)})`;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
         }
       });
 
@@ -126,13 +126,13 @@ const ParticleBackground: React.FC = () => {
     };
 
     const handleMouseMove = (event: MouseEvent) => {
-        mouse.x = event.x;
-        mouse.y = event.y;
+      mouse.x = event.x;
+      mouse.y = event.y;
     }
 
     const handleMouseLeave = () => {
-        mouse.x = -1000;
-        mouse.y = -1000;
+      mouse.x = -1000;
+      mouse.y = -1000;
     }
 
     window.addEventListener('resize', () => {
@@ -155,9 +155,9 @@ const ParticleBackground: React.FC = () => {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="fixed top-0 left-0 w-full h-full -z-10 opacity-50 pointer-events-none"
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-screen h-screen z-0 opacity-50 pointer-events-none"
     />
   );
 };

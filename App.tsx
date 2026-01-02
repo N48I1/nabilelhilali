@@ -32,7 +32,7 @@ const App: React.FC = () => {
     const { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, ENGAGEMENTS, UI } = DATA[language];
 
     return (
-        <div className="min-h-screen bg-background font-sans selection:bg-primary selection:text-text-main pt-8">
+        <div className="min-h-screen font-sans selection:bg-primary selection:text-text-main pt-8">
             <ParticleBackground />
             <TopBar />
             <Taskbar />
