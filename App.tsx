@@ -361,29 +361,44 @@ const App: React.FC = () => {
                             viewport={{ once: true }}
                             className="mt-24 max-w-4xl mx-auto"
                         >
-                            <div className="bg-surfaceHighlight p-8 rounded-2xl border border-white/5">
-                                <h3 className="text-2xl font-bold text-text-main mb-8 flex items-center justify-center gap-3">
-                                    <GraduationCap size={28} className="text-primary" /> {UI.academicBackground}
-                                </h3>
-                                <div className="grid md:grid-cols-3 gap-6">
-                                    {EDUCATION.map((edu, i) => (
-                                        <div key={i} className="p-6 rounded-xl bg-background border border-white/5 hover:border-primary/30 transition-all flex flex-col items-center text-center">
-                                            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
-                                                <GraduationCap size={20} />
-                                            </div>
-                                            <div className="text-text-main font-bold mb-2">{edu.degree}</div>
-                                            <div className="text-sm text-gray-400 mb-3">{edu.institution}</div>
-                                            <div className="text-xs text-primary font-mono px-3 py-1 rounded-full bg-primary/10">{edu.year}</div>
+                            <h3 className="text-3xl md:text-4xl font-bold text-text-main mb-12 flex items-center justify-center gap-3 text-center">
+                                <GraduationCap size={32} className="text-primary" /> {UI.academicBackground}
+                            </h3>
+                            <div className="grid md:grid-cols-3 gap-6">
+                                {EDUCATION.map((edu, i) => (
+                                    <div
+                                        key={i}
+                                        className="glass-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 flex flex-col items-center text-center group"
+                                    >
+                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                            <GraduationCap size={20} />
                                         </div>
-                                    ))}
-                                </div>
+                                        <div className="text-text-main font-bold mb-2 text-lg">{edu.degree}</div>
+
+                                        {edu.url ? (
+                                            <a
+                                                href={edu.url}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="text-sm text-gray-400 mb-3 hover:text-primary transition-colors flex items-center gap-1"
+                                            >
+                                                {edu.institution} <ExternalLink size={12} />
+                                            </a>
+                                        ) : (
+                                            <div className="text-sm text-gray-400 mb-3">{edu.institution}</div>
+                                        )}
+
+                                        <div className="text-xs text-primary font-mono px-3 py-1 rounded-full bg-primary/10 border border-primary/20">{edu.year}</div>
+                                    </div>
+                                ))}
                             </div>
+
                         </motion.div>
                     </div>
-                </section>
+                </section >
 
                 {/* Community & Engagements Section */}
-                <section id="engagements" className="py-24 px-4 bg-surface/30">
+                < section id="engagements" className="py-24 px-4 bg-surface/30" >
                     <div className="max-w-6xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -456,10 +471,10 @@ const App: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Footer */}
-                <footer id="contact" className="py-12 border-t border-white/5 relative z-10 bg-background mb-12">
+                < footer id="contact" className="py-12 border-t border-white/5 relative z-10 bg-background mb-12" >
                     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-text-main font-bold font-mono text-xl">N</div>
@@ -494,9 +509,9 @@ const App: React.FC = () => {
                             </a>
                         </div>
                     </div>
-                </footer>
-            </main>
-        </div>
+                </footer >
+            </main >
+        </div >
     );
 };
 

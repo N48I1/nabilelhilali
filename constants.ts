@@ -135,12 +135,14 @@ const DATA_EN: Data = {
     {
       degree: "Engineering Student in Network & Computer Security",
       institution: "ENIAD – Berkane",
-      year: "2023 - Ongoing"
+      year: "2023 - Ongoing",
+      url: "http://eniad.ump.ma"
     },
     {
       degree: "DEUST in Mathematics, Computer Science, and Physics",
       institution: "FSTh - Al Hoceima",
-      year: "2021 - 2023"
+      year: "2021 - 2023",
+      url: "http://fsth.ma"
     },
     {
       degree: "French Baccalaureate in Physical Sciences",
@@ -325,12 +327,14 @@ const DATA_FR: Data = {
     {
       degree: "Élève Ingénieur en Réseaux et Sécurité Informatique",
       institution: "ENIAD – Berkane",
-      year: "2023 - En cours"
+      year: "2023 - En cours",
+      url: "http://eniad.ump.ma"
     },
     {
       degree: "DEUST en Mathématiques, Informatique et Physique",
       institution: "FSTh - Al Hoceima",
-      year: "2021 - 2023"
+      year: "2021 - 2023",
+      url: "http://fsth.ma"
     },
     {
       degree: "Baccalauréat Français en Sciences Physiques",
