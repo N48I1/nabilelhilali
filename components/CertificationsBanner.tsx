@@ -150,26 +150,26 @@ const CertCard: React.FC<CertCardPropsExtended> = ({ cert, onExpandChange }) => 
 
       {/* Expanded Portal Overlay (Hover) */}
       {mounted && isExpanded && canExpand && rect && createPortal(
-        <div className="fixed inset-0 z-[9999]" style={{ pointerEvents: 'none' }}>
+        <div className="absolute inset-0 z-[9999]" style={{ pointerEvents: 'none', height: '100%' }}>
           <motion.div
             initial={{
-              top: rect.top,
-              left: rect.left,
+              top: rect.top + window.scrollY,
+              left: rect.left + window.scrollX,
               width: rect.width,
               height: rect.height,
               opacity: 0,
               scale: 1
             }}
             animate={{
-              top: rect.top - (rect.height * 0.15),
-              left: rect.left - (rect.width * 0.15),
+              top: (rect.top + window.scrollY) - (rect.height * 0.15),
+              left: (rect.left + window.scrollX) - (rect.width * 0.15),
               width: rect.width * 1.3,
               height: rect.height * 1.3,
               opacity: 1,
               scale: 1,
             }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bg-slate-900 rounded-xl border border-white/20 shadow-2xl overflow-hidden flex flex-col z-[10000]"
+            className="absolute bg-slate-900 rounded-xl border border-white/20 shadow-2xl overflow-hidden flex flex-col z-[10000]"
             style={{ pointerEvents: 'auto' }}
             onMouseLeave={handleMouseLeave}
           >
