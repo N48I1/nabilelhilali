@@ -6,6 +6,7 @@ import Taskbar from './components/Taskbar';
 import TopBar from './components/TopBar';
 import CertificationsBanner from './components/CertificationsBanner';
 import { Github, Linkedin, Mail, ExternalLink, Download, ChevronRight, Globe, Shield, Terminal, Database, Server, GraduationCap, Users, Video, Presentation, Command } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
@@ -35,6 +36,7 @@ const App: React.FC = () => {
     return (
         <div className="min-h-screen font-sans selection:bg-primary selection:text-text-main pt-8">
             <ParticleBackground />
+            <Analytics />
             <TopBar />
             <Taskbar />
 
