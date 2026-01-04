@@ -65,11 +65,11 @@ const TopBar: React.FC = () => {
           <ThemeToggle />
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-1 hover:text-white transition-colors ml-2"
+            className="flex items-center gap-1.5 hover:text-white transition-colors ml-2 sm:ml-2 px-2 py-1 sm:px-0 sm:py-0 rounded bg-white/5 sm:bg-transparent border border-white/10 sm:border-0"
             title={language === 'en' ? 'Switch to French' : 'Passer en Anglais'}
           >
             <Globe size={12} className="text-primary" />
-            <span className="text-[10px] font-bold hidden sm:inline">{language.toUpperCase()}</span>
+            <span className="text-[10px] font-bold sm:inline">{language.toUpperCase()}</span>
           </button>
         </div>
 

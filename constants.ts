@@ -44,11 +44,11 @@ const DATA_EN: Data = {
     description: "Cybersecurity engineering student passionate about defensive security, network intrusion detection, and offensive security methodologies. I specialize in building and tuning SOC environments, analyzing real-time threats, and designing resilient architectures using modern security stacks. I enjoy breaking things to understand how to defend them.",
     email: "nabil.elhilali.25@gmail.com",
     phone: "+212 6 48 85 20 24",
-    location: "Nador, Morocco",
+    location: "Casablanca - Oasis, Morocco",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
     avatarUrl: "/assets/PERSO_RESUME.jpeg",
-    resumeUrl: "/assets/EL HILALI NABIL RESUME 2025 EN.pdf"
+    resumeUrl: "/assets/EL HILALI NABIL RESUME EN 2026.pdf"
   },
   SKILLS: [
     {
@@ -236,7 +236,7 @@ const DATA_FR: Data = {
     description: "Élève ingénieur en cybersécurité passionné par la défense, la détection d'intrusions et les méthodologies offensives. Je me spécialise dans la construction et l'optimisation d'environnements SOC, l'analyse de menaces en temps réel et la conception d'architectures résilientes. J'aime casser les choses pour comprendre comment les défendre.",
     email: "nabil.elhilali.25@gmail.com",
     phone: "+212 6 48 85 20 24",
-    location: "Nador, Maroc",
+    location: "Casablanca - Oasis, Maroc",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
     avatarUrl: "/assets/PERSO_RESUME.jpeg",

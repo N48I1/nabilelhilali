@@ -30,6 +30,7 @@ const scaleOnHover = {
 const App: React.FC = () => {
     const { language } = useLanguage();
     const { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, ENGAGEMENTS, UI } = DATA[language];
+    const [showResumeSelection, setShowResumeSelection] = React.useState(false);
 
     return (
         <div className="min-h-screen font-sans selection:bg-primary selection:text-text-main pt-8">
@@ -175,15 +176,37 @@ const App: React.FC = () => {
                                         <span>{UI.experienceLabel}</span> <span className="text-text-main">3 Years (Academic + Ops)</span>
                                     </li>
                                 </ul>
-                                <motion.a
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    href={PROFILE.resumeUrl}
-                                    download={language === 'fr' ? "CV_Nabil_El_Hilali.pdf" : "Nabil_El_Hilali_Resume.pdf"}
-                                    className="w-full mt-6 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-text-main py-3 rounded-lg transition-colors border border-white/5"
-                                >
-                                    <Download size={16} /> {UI.downloadResume}
-                                </motion.a>
+                                {showResumeSelection ? (
+                                    <div className="w-full mt-6 grid grid-cols-2 gap-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                                        <a
+                                            href={DATA['en'].PROFILE.resumeUrl}
+                                            download="EL HILALI NABIL RESUME EN 2026.pdf"
+                                            className="flex items-center justify-center gap-2 bg-primary/20 hover:bg-primary/30 text-primary py-3 rounded-lg border border-primary/20 transition-all font-mono text-sm group"
+                                            onClick={() => setShowResumeSelection(false)}
+                                        >
+                                            <span className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform"></span>
+                                            English
+                                        </a>
+                                        <a
+                                            href={DATA['fr'].PROFILE.resumeUrl}
+                                            download="NABIL EL HILALI CV 2025 FR.pdf"
+                                            className="flex items-center justify-center gap-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 py-3 rounded-lg border border-blue-500/20 transition-all font-mono text-sm group"
+                                            onClick={() => setShowResumeSelection(false)}
+                                        >
+                                            <span className="w-2 h-2 rounded-full bg-blue-500 group-hover:scale-125 transition-transform"></span>
+                                            Français
+                                        </a>
+                                    </div>
+                                ) : (
+                                    <motion.button
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        onClick={() => setShowResumeSelection(true)}
+                                        className="w-full mt-6 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-text-main py-3 rounded-lg transition-colors border border-white/5"
+                                    >
+                                        <Download size={16} /> {UI.downloadResume}
+                                    </motion.button>
+                                )}
                             </div>
                         </motion.div>
                         <motion.div variants={fadeInUp}>
@@ -489,7 +512,7 @@ const App: React.FC = () => {
                                 <Mail size={16} /> {PROFILE.email}
                             </a>
                             <span className="hidden md:block text-white/10">|</span>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 whitespace-nowrap">
                                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                                 {PROFILE.phone}
                             </div>
