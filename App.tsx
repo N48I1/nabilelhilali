@@ -51,7 +51,7 @@ const App: React.FC = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="relative flex justify-center order-1 md:order-1"
+                            className="relative flex justify-center order-1 md:order-2"
                         >
                             {/* Glowing Backdrops */}
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] bg-primary/20 rounded-full blur-[80px] -z-10"></div>
@@ -97,7 +97,7 @@ const App: React.FC = () => {
                             initial="hidden"
                             animate="visible"
                             variants={staggerContainer}
-                            className="text-left space-y-8 order-2 md:order-2"
+                            className="text-left space-y-8 order-2 md:order-1"
                         >
                             <motion.div variants={fadeInUp} className="inline-block px-3 py-1 rounded-full bg-surfaceHighlight border border-white/5 text-primary text-xs font-mono font-medium tracking-wide">
                                 {UI.status}
