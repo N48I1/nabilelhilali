@@ -390,32 +390,33 @@ const App: React.FC = () => {
                                 <GraduationCap size={32} className="text-primary" /> {UI.academicBackground}
                             </h3>
                             <div className="grid md:grid-cols-3 gap-6">
-                                {EDUCATION.map((edu, i) => (
-                                    <div
-                                        key={i}
-                                        className="glass-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 flex flex-col items-center text-center group"
-                                    >
-                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                                            <GraduationCap size={20} />
-                                        </div>
-                                        <div className="text-text-main font-bold mb-2 text-lg">{edu.degree}</div>
+                                {EDUCATION.map((edu, i) => {
+                                    const CardWrapper = edu.url ? 'a' : 'div';
+                                    const cardProps = edu.url ? {
+                                        href: edu.url,
+                                        target: '_blank',
+                                        rel: 'noreferrer'
+                                    } : {};
 
-                                        {edu.url ? (
-                                            <a
-                                                href={edu.url}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="text-sm text-gray-400 mb-3 hover:text-primary transition-colors flex items-center gap-1"
-                                            >
-                                                {edu.institution} <ExternalLink size={12} />
-                                            </a>
-                                        ) : (
-                                            <div className="text-sm text-gray-400 mb-3">{edu.institution}</div>
-                                        )}
+                                    return (
+                                        <CardWrapper
+                                            key={i}
+                                            {...cardProps}
+                                            className={`glass-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 flex flex-col items-center text-center group ${edu.url ? 'cursor-pointer hover:shadow-lg hover:shadow-primary/10' : ''}`}
+                                        >
+                                            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                                <GraduationCap size={20} />
+                                            </div>
+                                            <div className="text-text-main font-bold mb-2 text-lg">{edu.degree}</div>
 
-                                        <div className="text-xs text-primary font-mono px-3 py-1 rounded-full bg-primary/10 border border-primary/20">{edu.year}</div>
-                                    </div>
-                                ))}
+                                            <div className={`text-sm mb-3 flex items-center gap-1 transition-colors ${edu.url ? 'text-gray-400 group-hover:text-primary' : 'text-gray-400'}`}>
+                                                {edu.institution} {edu.url && <ExternalLink size={12} />}
+                                            </div>
+
+                                            <div className="text-xs text-primary font-mono px-3 py-1 rounded-full bg-primary/10 border border-primary/20">{edu.year}</div>
+                                        </CardWrapper>
+                                    );
+                                })}
                             </div>
 
                         </motion.div>
