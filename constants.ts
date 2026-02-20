@@ -47,7 +47,7 @@ const DATA_EN: Data = {
     location: "Casablanca - Oasis, Morocco",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
-    avatarUrl: "/assets/PERSO_RESUME.jpeg",
+    avatarUrl: "/assets/PERSO_RESUME1.jpeg",
     resumeUrl: "/assets/EL HILALI NABIL RESUME EN 2026.pdf"
   },
   SKILLS: [
@@ -239,7 +239,7 @@ const DATA_FR: Data = {
     location: "Casablanca - Oasis, Maroc",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
-    avatarUrl: "/assets/PERSO_RESUME.jpeg",
+    avatarUrl: "/assets/PERSO_RESUME1.jpeg",
     resumeUrl: "/assets/NABIL EL HILALI CV 2025 FR.pdf" // Placeholder for French resume
   },
   SKILLS: [
