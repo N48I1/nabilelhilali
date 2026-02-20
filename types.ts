@@ -3,6 +3,7 @@ export interface Project {
   tech: string[];
   description: string;
   details?: string[];
+  status?: string;
 }
 
 export interface Experience {

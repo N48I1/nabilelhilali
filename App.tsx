@@ -304,7 +304,18 @@ const App: React.FC = () => {
                                 >
                                     <div className="h-2 bg-gradient-to-r from-primary to-blue-600"></div>
                                     <div className="p-8 flex-1 flex flex-col">
-                                        <h3 className="text-xl font-bold text-text-main mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                                        <div className="flex items-start justify-between gap-3 mb-3">
+                                            <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors">{project.title}</h3>
+                                            {project.status && (
+                                                <span className="shrink-0 inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                                    <span className="relative flex h-2 w-2">
+                                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                                                    </span>
+                                                    {project.status}
+                                                </span>
+                                            )}
+                                        </div>
                                         <p className="text-text-muted text-sm mb-6 flex-1 leading-relaxed">{project.description}</p>
 
                                         <div className="space-y-4">

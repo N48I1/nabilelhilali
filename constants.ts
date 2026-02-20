@@ -38,17 +38,17 @@ const DATA_EN: Data = {
   PROFILE: {
     username: "N48I1",
     fullName: "El Hilali Nabil",
-    title: "Cybersecurity & Network Engineer | SOC Enthusiast | Offensive Security Learner",
-    tagline: "Always learning. Always improving. Always digging deeper.",
-    shortDescription: "Cybersecurity engineering student aspiring Blue Team Operations, SOC Architecture, and Threat Intelligence.",
-    description: "Cybersecurity engineering student passionate about defensive security, network intrusion detection, and offensive security methodologies. I specialize in building and tuning SOC environments, analyzing real-time threats, and designing resilient architectures using modern security stacks. I enjoy breaking things to understand how to defend them.",
+    title: "Network & IT Security Engineering Student — Defensive Cybersecurity & AI",
+    tagline: "Securing systems. Leveraging AI. Engineering resilience.",
+    shortDescription: "Network & IT Security engineering student specializing in defensive cybersecurity, SOC architecture, and AI-driven threat detection.",
+    description: "Network & IT Security engineering student passionate about defensive cybersecurity and AI-powered security operations. I specialize in building and tuning SOC environments, leveraging machine learning for threat detection and incident response automation, and designing resilient network architectures. Combining deep security expertise with AI to stay ahead of evolving threats.",
     email: "nabil.elhilali.25@gmail.com",
     phone: "+212 6 48 85 20 24",
     location: "Casablanca - Oasis, Morocco",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
     avatarUrl: "/assets/PERSO_RESUME1.jpeg",
-    resumeUrl: "/assets/EL HILALI NABIL RESUME EN 2026.pdf"
+    resumeUrl: "/assets/EL-HILALI_NABIL_RESUME_2026.pdf"
   },
   SKILLS: [
     {
@@ -56,11 +56,11 @@ const DATA_EN: Data = {
       skills: ["Wazuh", "ELK Stack (Elasticsearch, Filebeat, Logstash, Kibana)", "Suricata", "Zeek", "TheHive", "Cortex", "MISP"]
     },
     {
-      category: "Automation",
+      category: "SOAR & Automation",
       skills: ["n8n", "Shuffle (shuffler.io)"]
     },
     {
-      category: "Cloud, Virtualization & Containerization",
+      category: "Cloud / Virtualization",
       skills: ["Microsoft Azure", "DigitalOcean", "VMware ESXi", "Proxmox VE", "Docker", "Docker Compose"]
     },
     {
@@ -80,8 +80,8 @@ const DATA_EN: Data = {
       skills: ["Python", "Bash", "PowerShell", "JavaScript", "Java", "React", "SQL", "Git/GitHub"]
     },
     {
-      category: "Data & Machine Learning",
-      skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Keras/TensorFlow basics"]
+      category: "AI & Data",
+      skills: ["Gemini API", "LangChain (basics)", "RAG", "Prompt Engineering", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Keras / TensorFlow (basics)"]
     }
   ],
   EXPERIENCE: [
@@ -100,6 +100,18 @@ const DATA_EN: Data = {
     }
   ],
   PROJECTS: [
+    {
+      title: "RAG-POWERED RCA DECISION SUPPORT PLATFORM",
+      tech: ["LangGraph", "LangChain", "Mistral 7B", "Ollama", "ChromaDB", "FastAPI", "React", "TypeScript"],
+      description: "Designing a multi-agent AI platform that accelerates Root Cause Analysis for IT maintenance engineers — fully local, no GPU, no cloud.",
+      status: "Ongoing",
+      details: [
+        "6-agent architecture (LangGraph) for email parsing, log analysis, RCA generation, action planning, and validation — all orchestrated via state machine.",
+        "RAG pipeline with ChromaDB for semantic similarity search against historical cases, achieving 80%+ RCA accuracy.",
+        "Runs entirely on CPU (Mistral 7B Q4 + Phi-3 Mini via Ollama) with ~4-6 GB RAM footprint — zero external API calls.",
+        "Browser extension (Chrome Manifest V3) for automated ticket extraction, with mTLS + JWT security."
+      ]
+    },
     {
       title: "SOC / SIEM, SOAR & AI – ENIAD LAB",
       tech: ["Wazuh", "TheHive", "Cortex", "MISP", "Shuffle", "Gemini API", "VMware ESXi"],
@@ -230,17 +242,17 @@ const DATA_FR: Data = {
   PROFILE: {
     username: "N48I1",
     fullName: "El Hilali Nabil",
-    title: "Ingénieur Sécurité & Réseaux | Passionné par le SOC | Apprenti Offensive Security",
-    tagline: "Toujours apprendre. S'améliorer sans cesse. Creuser toujours plus loin.",
-    shortDescription: "Élève ingénieur en cybersécurité aspirant aux opérations Blue Team, à l'architecture SOC et à la Threat Intelligence.",
-    description: "Élève ingénieur en cybersécurité passionné par la défense, la détection d'intrusions et les méthodologies offensives. Je me spécialise dans la construction et l'optimisation d'environnements SOC, l'analyse de menaces en temps réel et la conception d'architectures résilientes. J'aime casser les choses pour comprendre comment les défendre.",
+    title: "Élève Ingénieur Réseaux & Sécurité IT — Cybersécurité Défensive & IA",
+    tagline: "Sécuriser les systèmes. Exploiter l'IA. Concevoir la résilience.",
+    shortDescription: "Élève ingénieur en réseaux et sécurité IT, spécialisé en cybersécurité défensive, architecture SOC et détection de menaces par IA.",
+    description: "Élève ingénieur en réseaux et sécurité IT, passionné par la cybersécurité défensive et les opérations de sécurité augmentées par l'IA. Je me spécialise dans la construction et l'optimisation d'environnements SOC, l'exploitation du machine learning pour la détection de menaces et l'automatisation de la réponse aux incidents, ainsi que la conception d'architectures réseau résilientes. Allier expertise sécurité et IA pour anticiper les menaces émergentes.",
     email: "nabil.elhilali.25@gmail.com",
     phone: "+212 6 48 85 20 24",
     location: "Casablanca - Oasis, Maroc",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
     avatarUrl: "/assets/PERSO_RESUME1.jpeg",
-    resumeUrl: "/assets/NABIL EL HILALI CV 2025 FR.pdf" // Placeholder for French resume
+    resumeUrl: "/assets/EL-HILALI_NABIL_CV_2026.pdf"
   },
   SKILLS: [
     {
@@ -248,11 +260,11 @@ const DATA_FR: Data = {
       skills: ["Wazuh", "ELK Stack (Elasticsearch, Filebeat, Logstash, Kibana)", "Suricata", "Zeek", "TheHive", "Cortex", "MISP"]
     },
     {
-      category: "Automatisation",
+      category: "SOAR & Automatisation",
       skills: ["n8n", "Shuffle (shuffler.io)"]
     },
     {
-      category: "Cloud, Virtualisation & Conteneurisation",
+      category: "Cloud / Virtualisation",
       skills: ["Microsoft Azure", "DigitalOcean", "VMware ESXi", "Proxmox VE", "Docker", "Docker Compose"]
     },
     {
@@ -272,8 +284,8 @@ const DATA_FR: Data = {
       skills: ["Python", "Bash", "PowerShell", "JavaScript", "Java", "React", "SQL", "Git/GitHub"]
     },
     {
-      category: "Données & Machine Learning",
-      skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Keras/TensorFlow basics"]
+      category: "IA & Data",
+      skills: ["Gemini API", "LangChain (bases)", "RAG", "Prompt Engineering", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Keras / TensorFlow (bases)"]
     }
   ],
   EXPERIENCE: [
@@ -292,6 +304,18 @@ const DATA_FR: Data = {
     }
   ],
   PROJECTS: [
+    {
+      title: "PLATEFORME D'AIDE À LA DÉCISION RCA AUGMENTÉE PAR RAG",
+      tech: ["LangGraph", "LangChain", "Mistral 7B", "Ollama", "ChromaDB", "FastAPI", "React", "TypeScript"],
+      description: "Conception d'une plateforme IA multi-agents accélérant l'analyse de cause racine (RCA) pour les ingénieurs de maintenance IT — entièrement locale, sans GPU, sans cloud.",
+      status: "En cours",
+      details: [
+        "Architecture à 6 agents (LangGraph) pour le parsing d'emails, l'analyse de logs, la génération de RCA, la planification d'actions et la validation — orchestrés via machine à états.",
+        "Pipeline RAG avec ChromaDB pour la recherche sémantique dans les cas historiques, atteignant 80%+ de précision RCA.",
+        "Fonctionne entièrement sur CPU (Mistral 7B Q4 + Phi-3 Mini via Ollama) avec ~4-6 Go de RAM — zéro appel API externe.",
+        "Extension navigateur (Chrome Manifest V3) pour l'extraction automatisée de tickets, sécurisée par mTLS + JWT."
+      ]
+    },
     {
       title: "SOC / SIEM, SOAR & AI – ENIAD LAB",
       tech: ["Wazuh", "TheHive", "Cortex", "MISP", "Shuffle", "Gemini API", "VMware ESXi"],
