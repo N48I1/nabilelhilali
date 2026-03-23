@@ -1,83 +1,51 @@
 # Nabil El Hilali - Cybersecurity Portfolio
 
-A modern, responsive, and dynamic personal portfolio built to showcase my experience, skills, and projects in the field of Cybersecurity and IT Networks.
+Hi there! This is the source code for my personal portfolio website. I built this to showcase my work, experience, and projects in the cybersecurity and IT networks space.
 
-## Live Demo
+You can check out the live version here: [nabilelhilali.tech](https://www.nabilelhilali.tech)
 
-[Visit my Portfolio](https://www.nabilelhilali.tech)
+## What's in here?
 
-## Features
+I wanted the site to reflect my focus on cybersecurity, so I went with a terminal-inspired, dark-mode-first aesthetic with some neat glassmorphism effects. It's built with modern web technologies:
 
-- **Cybersecurity Theme**: A sleek, terminal-inspired design with modern glassmorphism and glowing effects.
-- **Dual Language Support**: Seamlessly switch between English and French.
-- **Light & Dark Modes**: Fully adaptive styling to suit user preferences.
-- **Interactive UI**: Fluid animations powered by Framer Motion.
-- **Comprehensive Sections**:
-  - Hero Profile
-  - About (System Specs, Resume Download)
-  - Technical Arsenal (Skills)
-  - Certifications Marquee
-  - Featured Operations (Projects)
-  - Professional Timeline (Experience)
-  - Academic Background
-  - Community & Teaching Engagements
+- **React 19** and **Vite** for the core foundation.
+- **Tailwind CSS** for styling.
+- **Framer Motion** for the fluid animations across the pages.
+- **Lucide React** for the clean icons.
 
-## Technology Stack
+It's also fully bilingual (English and French) and adapts to light or dark mode depending on your preference.
 
-- **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Analytics**: [@vercel/analytics](https://vercel.com/analytics)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
+## Running the project locally
 
-## Getting Started
+If you'd like to run this locally to check under the hood, the setup is pretty straightforward. Just make sure you have Node.js installed.
 
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
+1. Clone the repo:
    ```bash
    git clone https://github.com/n48i1/cybersec-portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
    cd n48i1-cybersec-portfolio
    ```
-3. Install dependencies:
+
+2. Install the necessary packages:
    ```bash
    npm install
    ```
-4. Start the development server:
+
+3. Spin up the development server:
    ```bash
    npm run dev
    ```
-5. Open your browser and visit `http://localhost:3000` (or the port specified in your terminal).
 
-## Project Structure
+Then just open your browser to the local URL Vite gives you (usually `http://localhost:3000`).
 
-- `src/` - Contains the React components, styles, and application logic.
-  - `components/` - Reusable UI elements (Taskbar, TopBar, ParticleBackground, CertificationsBanner, etc.)
-  - `context/` - React contexts (e.g., LanguageContext)
-  - `constants.ts` - All content data (EN/FR) for the portfolio sections.
-  - `types.ts` - TypeScript interfaces and types.
-- `public/assets/` - Static assets including resumes, avatars, and certification logos.
-- `index.html` - The main HTML template with global styles and Tailwind config.
+## Making changes
 
-## Configuration
+If you plan to fork this and use it for yourself, almost all the text content is driven by a single file: `src/constants.ts`. You can simply swap out the information in the `DATA_EN` and `DATA_FR` objects with your own skills, experience, and contact details without having to dig through all the React components.
 
-The portfolio content is centralized in `src/constants.ts`. To update your information, skills, projects, or experience, simply modify the `DATA_EN` and `DATA_FR` objects in this file.
+## Get in touch
 
-## Contact
+Feel free to reach out if you have any questions or just want to connect!
+- Email: nabil.elhilali.25@gmail.com
+- LinkedIn: [Nabil El Hilali](https://www.linkedin.com/in/nabil-el-hilali-712224237/)
+- GitHub: [n48i1](https://github.com/n48i1)
 
-- **Email**: nabil.elhilali.25@gmail.com
-- **LinkedIn**: [Nabil El Hilali](https://www.linkedin.com/in/nabil-el-hilali-712224237/)
-- **GitHub**: [n48i1](https://github.com/n48i1)
-
----
-*Designed & Built by Nabil El Hilali.*
+Thanks for stopping by!
