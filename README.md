@@ -1,12 +1,12 @@
-# 🛡️ Nabil El Hilali - Cybersecurity Portfolio
+# Nabil El Hilali - Cybersecurity Portfolio
 
 A modern, responsive, and dynamic personal portfolio built to showcase my experience, skills, and projects in the field of Cybersecurity and IT Networks.
 
-## 🚀 Live Demo
+## Live Demo
 
 [Visit my Portfolio](https://www.nabilelhilali.tech)
 
-## ✨ Features
+## Features
 
 - **Cybersecurity Theme**: A sleek, terminal-inspired design with modern glassmorphism and glowing effects.
 - **Dual Language Support**: Seamlessly switch between English and French.
@@ -22,7 +22,7 @@ A modern, responsive, and dynamic personal portfolio built to showcase my experi
   - Academic Background
   - Community & Teaching Engagements
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Framework**: [React 19](https://react.dev/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
@@ -32,7 +32,7 @@ A modern, responsive, and dynamic personal portfolio built to showcase my experi
 - **Analytics**: [@vercel/analytics](https://vercel.com/analytics)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -59,7 +59,7 @@ A modern, responsive, and dynamic personal portfolio built to showcase my experi
    ```
 5. Open your browser and visit `http://localhost:3000` (or the port specified in your terminal).
 
-## 🗂️ Project Structure
+## Project Structure
 
 - `src/` - Contains the React components, styles, and application logic.
   - `components/` - Reusable UI elements (Taskbar, TopBar, ParticleBackground, CertificationsBanner, etc.)
@@ -69,11 +69,11 @@ A modern, responsive, and dynamic personal portfolio built to showcase my experi
 - `public/assets/` - Static assets including resumes, avatars, and certification logos.
 - `index.html` - The main HTML template with global styles and Tailwind config.
 
-## 📝 Configuration
+## Configuration
 
 The portfolio content is centralized in `src/constants.ts`. To update your information, skills, projects, or experience, simply modify the `DATA_EN` and `DATA_FR` objects in this file.
 
-## 📬 Contact
+## Contact
 
 - **Email**: nabil.elhilali.25@gmail.com
 - **LinkedIn**: [Nabil El Hilali](https://www.linkedin.com/in/nabil-el-hilali-712224237/)
