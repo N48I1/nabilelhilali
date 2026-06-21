@@ -1,4 +1,4 @@
-import { Profile, Experience, Project, SkillCategory, Education, Certification, UI } from './types';
+import { Profile, Experience, Project, SkillCategory, Education, Certification, Achievement, UI } from './types';
 
 interface Data {
   PROFILE: Profile;
@@ -7,28 +7,31 @@ interface Data {
   PROJECTS: Project[];
   EDUCATION: Education[];
   CERTIFICATIONS: Certification[];
+  ACHIEVEMENTS: Achievement[];
   ENGAGEMENTS: Experience[];
   UI: UI;
 }
 
 const DATA_EN: Data = {
   UI: {
-    status: "STATUS: Open to a 4–6 month internship beginning February 2026.",
+    status: "STATUS: Open to full-time cybersecurity roles.",
     greeting: "Hello, I'm",
-    viewOperations: "View Operations",
+    viewOperations: "View Projects",
     contactMe: "Contact Me",
-    systemSpecs: "System Specs",
+    systemSpecs: "Profile",
     locationLabel: "Location",
     focusLabel: "Focus",
     experienceLabel: "Experience",
     downloadResume: "Download Resume",
     aboutMe: "About Me",
-    technicalArsenal: "Technical Arsenal",
-    technicalArsenalDesc: "A comprehensive toolkit utilized for offensive and defensive security operations.",
-    featuredOperations: "Featured Operations",
+    technicalArsenal: "Skills & Tools",
+    technicalArsenalDesc: "A comprehensive toolkit used across offensive and defensive security work.",
+    featuredOperations: "Featured Projects",
     featuredOperationsDesc: "Key projects and deployments.",
     viewGithub: "View GitHub",
-    professionalTimeline: "Professional Timeline",
+    professionalTimeline: "Experience",
+    achievements: "Achievements",
+    achievementsDesc: "Recognition earned in competitive cybersecurity events.",
     academicBackground: "Academic Background",
     communityTeaching: "Community & Teaching",
     communityTeachingDesc: "Sharing knowledge and mentoring the next generation of engineers.",
@@ -38,13 +41,13 @@ const DATA_EN: Data = {
   PROFILE: {
     username: "N48I1",
     fullName: "El Hilali Nabil",
-    title: "Network & IT Security Engineering Student — Defensive Cybersecurity & AI",
+    title: "Network & IT Security Engineer — Defensive Cybersecurity & AI",
     tagline: "Securing systems. Leveraging AI. Engineering resilience.",
-    shortDescription: "Network & IT Security engineering student specializing in defensive cybersecurity, SOC architecture, and AI-driven threat detection.",
-    description: "Network & IT Security engineering student passionate about defensive cybersecurity and AI-powered security operations. I specialize in building and tuning SOC environments, leveraging machine learning for threat detection and incident response automation, and designing resilient network architectures. Combining deep security expertise with AI to stay ahead of evolving threats.",
+    shortDescription: "Network & IT Security engineer and MACC 2026 national CTF champion — specializing in defensive cybersecurity, SOC architecture, and AI-driven threat detection.",
+    description: "I'm a Network & IT Security engineer specializing in defensive cybersecurity and AI-driven security operations. I design and tune SOC/SIEM environments, engineer detection rules and incident-response automation, and put LLMs and machine learning to work triaging threats and cutting analyst workload — most recently building a multi-agent, AI-driven SOC platform. A national CTF champion, I pair an attacker's mindset with an engineer's discipline to build systems that hold up under real-world pressure.",
     email: "nabil.elhilali.25@gmail.com",
     phone: "+212 6 48 85 20 24",
-    location: "Casablanca - Oasis, Morocco",
+    location: "Temara, Morocco",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
     avatarUrl: "/assets/PERSO_RESUME1.jpeg",
@@ -53,41 +56,56 @@ const DATA_EN: Data = {
   SKILLS: [
     {
       category: "SOC & Blue Team",
-      skills: ["Wazuh", "ELK Stack (Elasticsearch, Filebeat, Logstash, Kibana)", "Suricata", "Zeek", "TheHive", "Cortex", "MISP"]
+      skills: ["Wazuh", "ELK Stack (Elasticsearch, Logstash, Kibana)", "Suricata", "Zeek", "TheHive", "Cortex", "MISP", "MITRE ATT&CK", "Incident Response"]
     },
     {
-      category: "SOAR & Automation",
-      skills: ["n8n", "Shuffle (shuffler.io)"]
+      category: "AI Security & Automation",
+      skills: ["LangGraph", "LangChain", "Multi-Agent Systems", "RAG", "Ollama", "OpenRouter", "ChromaDB", "pgvector", "Prompt Engineering", "Gemini API", "Mistral 7B", "STRIX Agent", "Shuffle", "n8n", "Detection & Response Automation"]
     },
     {
-      category: "Cloud / Virtualization",
+      category: "Cloud & Virtualization",
       skills: ["Microsoft Azure", "DigitalOcean", "VMware ESXi", "Proxmox VE", "Docker", "Docker Compose"]
     },
     {
       category: "Network Security",
-      skills: ["TCP/IP", "VLANs", "VPNs", "Firewall Policies", "IDS/IPS", "SDN security (IOTA 2.0)"]
+      skills: ["TCP/IP", "VLANs", "VPNs", "Firewall Policies", "IDS/IPS", "SDN Security"]
     },
     {
       category: "Networks & Infrastructure",
       skills: ["FortiGate", "FortiSwitch", "Cisco switching/routing", "Dell EMC² & HPE servers"]
     },
     {
-      category: "Pentesting / Offensive Security",
-      skills: ["Nmap", "Wireshark", "Nessus", "OpenVAS", "Burp Suite", "Nikto", "Gobuster", "FFUF", "Hydra", "Metasploit", "Bettercap", "Dirsearch", "John the Ripper", "Hashcat", "STRIX Agent"]
+      category: "Offensive Security",
+      skills: ["Nmap", "Wireshark", "Nessus", "OpenVAS", "Burp Suite", "Metasploit", "Hydra", "Hashcat", "John the Ripper", "FFUF", "Gobuster", "Nikto", "Bettercap"]
     },
     {
       category: "Dev & Scripting",
-      skills: ["Python", "Bash", "PowerShell", "JavaScript", "Java", "React", "SQL", "Git/GitHub"]
+      skills: ["Python", "Bash", "PowerShell", "TypeScript", "JavaScript", "Java", "React", "FastAPI", "SQL", "PostgreSQL", "Git/GitHub"]
     },
     {
-      category: "AI & Data",
-      skills: ["Gemini API", "LangChain (basics)", "RAG", "Prompt Engineering", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Keras / TensorFlow (basics)"]
+      category: "Data & ML",
+      skills: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow / Keras", "Matplotlib"]
     }
   ],
   EXPERIENCE: [
     {
+      role: "Cybersecurity Analyst",
+      company: "Black Box Solutions",
+      logoUrl: "/assets/bbs-logo.png",
+      location: "Casablanca, Morocco",
+      period: "February 2026 - Present",
+      tasks: [
+        "Designing and building AISOC (Aegis SOC Platform), an AI-driven Security Operations Center for automated alert triage and incident response.",
+        "Engineered a multi-agent \"Hub-and-Swarm\" orchestration pipeline (LangGraph) where a central planner dispatches specialized investigator agents in parallel across Triage, Investigation, and Composition phases.",
+        "Built Wazuh-style alert ingestion with real-time streaming to the analyst dashboard (Socket.IO), automated MITRE ATT&CK mapping, remediation guidance, ticketing, and Markdown incident-report generation.",
+        "Implemented multi-model LLM resilience (OpenRouter providers with local Ollama fallback) plus memory tiers (pgvector semantic search, IOC history) and false-positive short-circuiting for efficiency.",
+        "Full stack: React + Vite analyst frontend, Express + PostgreSQL (pgvector) backend with JWT authentication."
+      ]
+    },
+    {
       role: "End-of-Year Internship",
       company: "EVERNEX Morocco",
+      logoUrl: "/assets/evernex-logo.png",
       location: "Casablanca, Morocco",
       period: "July - August 2025",
       tasks: [
@@ -101,10 +119,20 @@ const DATA_EN: Data = {
   ],
   PROJECTS: [
     {
+      title: "AISOC — AI-DRIVEN SOC PLATFORM (AEGIS)",
+      tech: ["LangGraph", "LangChain", "OpenRouter", "Ollama", "PostgreSQL", "pgvector", "Express", "Socket.IO", "React", "TypeScript"],
+      description: "A full-stack, AI-driven Security Operations Center that automates alert triage, investigation, and incident response for analysts. Built during my internship at Black Box Solutions.",
+      details: [
+        "Multi-agent \"Hub-and-Swarm\" orchestration (LangGraph): a central planner dispatches specialized investigator agents in parallel across Triage, Investigation, and Composition phases.",
+        "Ingests Wazuh-style alerts with real-time Socket.IO streaming to the analyst dashboard, automated MITRE ATT&CK mapping, remediation guidance, ticketing, and Markdown incident-report generation.",
+        "pgvector-backed semantic memory and IOC history, multi-model LLM resilience (OpenRouter providers with local Ollama fallback), and false-positive short-circuiting for efficiency.",
+        "React + Vite analyst frontend with an Express + PostgreSQL backend and JWT authentication."
+      ]
+    },
+    {
       title: "RAG-POWERED RCA DECISION SUPPORT PLATFORM",
       tech: ["LangGraph", "LangChain", "Mistral 7B", "Ollama", "ChromaDB", "FastAPI", "React", "TypeScript"],
       description: "Designing a multi-agent AI platform that accelerates Root Cause Analysis for IT maintenance engineers — fully local, no GPU, no cloud.",
-      status: "Ongoing",
       details: [
         "6-agent architecture (LangGraph) for email parsing, log analysis, RCA generation, action planning, and validation — all orchestrated via state machine.",
         "RAG pipeline with ChromaDB for semantic similarity search against historical cases, achieving 80%+ RCA accuracy.",
@@ -145,9 +173,9 @@ const DATA_EN: Data = {
   ],
   EDUCATION: [
     {
-      degree: "Engineering Student in Network & Computer Security",
+      degree: "Engineer's Degree — Network & Computer Security",
       institution: "ENIAD – Berkane",
-      year: "2023 - Ongoing",
+      year: "2023 - 2026",
       url: "http://eniad.ump.ma"
     },
     {
@@ -163,7 +191,7 @@ const DATA_EN: Data = {
     }
   ],
   CERTIFICATIONS: [
-    { name: "Cisco CCNA", status: "In Progress", logoUrl: "/assets/CCNA_logo.png" },
+    { name: "Cisco CCNA", status: "Completed", logoUrl: "/assets/CCNA_logo.png" },
     {
       name: "Fortinet NSE 1",
       status: "Completed",
@@ -176,6 +204,28 @@ const DATA_EN: Data = {
       status: "Completed",
       logoUrl: "/assets/NSE3_logo.png",
       imageUrl: "/assets/Fortinet Certified Associate in Cybersecurity_page-0001.jpg"
+    }
+  ],
+  ACHIEVEMENTS: [
+    {
+      title: "MACC 2026 CTF — Champions",
+      event: "MACC 2026 Capture The Flag",
+      organizer: "DGSSI (Moroccan General Directorate of Information Systems Security)",
+      placement: "🥇 1st Place — Champions",
+      rank: "gold",
+      year: "2026",
+      description: "Champions of the national CTF organized by Morocco's national cybersecurity authority (DGSSI), winning across offensive and defensive security challenges.",
+      imageUrl: "/assets/macc-2026-team.jpg"
+    },
+    {
+      title: "AIAC CTF — 3rd Place",
+      event: "AIAC Capture The Flag",
+      organizer: "AIAC",
+      placement: "🥉 3rd Place",
+      rank: "bronze",
+      description: "Secured third place against competing teams in a multi-category cybersecurity competition.",
+      imageUrl: "/assets/aiac-2026-team.jpg",
+      imagePosition: "center top"
     }
   ],
   ENGAGEMENTS: [
@@ -217,22 +267,24 @@ const DATA_EN: Data = {
 
 const DATA_FR: Data = {
   UI: {
-    status: "STATUT : Recherche un stage de 4 à 6 mois débutant en Février 2026.",
+    status: "STATUT : Ouvert aux postes en cybersécurité (temps plein).",
     greeting: "Bonjour, je suis",
-    viewOperations: "Voir Opérations",
+    viewOperations: "Voir les Projets",
     contactMe: "Me Contacter",
-    systemSpecs: "Spécifications Système",
+    systemSpecs: "Profil",
     locationLabel: "Lieu",
     focusLabel: "Focus",
     experienceLabel: "Expérience",
     downloadResume: "Télécharger CV",
     aboutMe: "À Propos",
-    technicalArsenal: "Arsenal Technique",
-    technicalArsenalDesc: "Une boîte à outils complète utilisée pour les opérations de sécurité offensive et défensive.",
-    featuredOperations: "Opérations Mises en Avant",
+    technicalArsenal: "Compétences & Outils",
+    technicalArsenalDesc: "Un ensemble d'outils complet utilisé en sécurité offensive et défensive.",
+    featuredOperations: "Projets Phares",
     featuredOperationsDesc: "Projets clés et déploiements.",
     viewGithub: "Voir GitHub",
-    professionalTimeline: "Chronologie Professionnelle",
+    professionalTimeline: "Expérience",
+    achievements: "Distinctions",
+    achievementsDesc: "Reconnaissances obtenues lors de compétitions de cybersécurité.",
     academicBackground: "Parcours Académique",
     communityTeaching: "Communauté & Enseignement",
     communityTeachingDesc: "Partage de connaissances et mentorat de la prochaine génération d'ingénieurs.",
@@ -242,13 +294,13 @@ const DATA_FR: Data = {
   PROFILE: {
     username: "N48I1",
     fullName: "El Hilali Nabil",
-    title: "Élève Ingénieur Réseaux & Sécurité IT — Cybersécurité Défensive & IA",
+    title: "Ingénieur Réseaux & Sécurité IT — Cybersécurité Défensive & IA",
     tagline: "Sécuriser les systèmes. Exploiter l'IA. Concevoir la résilience.",
-    shortDescription: "Élève ingénieur en réseaux et sécurité IT, spécialisé en cybersécurité défensive, architecture SOC et détection de menaces par IA.",
-    description: "Élève ingénieur en réseaux et sécurité IT, passionné par la cybersécurité défensive et les opérations de sécurité augmentées par l'IA. Je me spécialise dans la construction et l'optimisation d'environnements SOC, l'exploitation du machine learning pour la détection de menaces et l'automatisation de la réponse aux incidents, ainsi que la conception d'architectures réseau résilientes. Allier expertise sécurité et IA pour anticiper les menaces émergentes.",
+    shortDescription: "Ingénieur Réseaux & Sécurité IT et champion national du CTF MACC 2026 — spécialisé en cybersécurité défensive, architecture SOC et détection de menaces par IA.",
+    description: "Ingénieur Réseaux & Sécurité IT spécialisé en cybersécurité défensive et en opérations de sécurité augmentées par l'IA. Je conçois et optimise des environnements SOC/SIEM, je développe des règles de détection et l'automatisation de la réponse aux incidents, et j'exploite les LLM et le machine learning pour trier les menaces et alléger la charge des analystes — avec, récemment, la création d'une plateforme SOC multi-agents pilotée par l'IA. Champion national de CTF, j'allie l'état d'esprit d'un attaquant à la rigueur d'un ingénieur pour bâtir des systèmes qui tiennent sous pression réelle.",
     email: "nabil.elhilali.25@gmail.com",
     phone: "+212 6 48 85 20 24",
-    location: "Casablanca - Oasis, Maroc",
+    location: "Temara, Maroc",
     linkedin: "https://www.linkedin.com/in/nabil-el-hilali-712224237/",
     portfolio: "https://www.nabilelhilali.tech",
     avatarUrl: "/assets/PERSO_RESUME1.jpeg",
@@ -257,41 +309,56 @@ const DATA_FR: Data = {
   SKILLS: [
     {
       category: "SOC & Blue Team",
-      skills: ["Wazuh", "ELK Stack (Elasticsearch, Filebeat, Logstash, Kibana)", "Suricata", "Zeek", "TheHive", "Cortex", "MISP"]
+      skills: ["Wazuh", "ELK Stack (Elasticsearch, Logstash, Kibana)", "Suricata", "Zeek", "TheHive", "Cortex", "MISP", "MITRE ATT&CK", "Réponse aux Incidents"]
     },
     {
-      category: "SOAR & Automatisation",
-      skills: ["n8n", "Shuffle (shuffler.io)"]
+      category: "Sécurité IA & Automatisation",
+      skills: ["LangGraph", "LangChain", "Systèmes Multi-Agents", "RAG", "Ollama", "OpenRouter", "ChromaDB", "pgvector", "Prompt Engineering", "Gemini API", "Mistral 7B", "STRIX Agent", "Shuffle", "n8n", "Automatisation Détection & Réponse"]
     },
     {
-      category: "Cloud / Virtualisation",
+      category: "Cloud & Virtualisation",
       skills: ["Microsoft Azure", "DigitalOcean", "VMware ESXi", "Proxmox VE", "Docker", "Docker Compose"]
     },
     {
       category: "Sécurité Réseau",
-      skills: ["TCP/IP", "VLANs", "VPNs", "Règles de pare-feu", "IDS/IPS", "SDN security (IOTA 2.0)"]
+      skills: ["TCP/IP", "VLANs", "VPNs", "Règles de pare-feu", "IDS/IPS", "Sécurité SDN"]
     },
     {
       category: "Réseaux & Infrastructure",
       skills: ["FortiGate", "FortiSwitch", "Cisco switching/routing", "Dell EMC² & HPE servers"]
     },
     {
-      category: "Pentesting / Sécurité Offensive",
-      skills: ["Nmap", "Wireshark", "Nessus", "OpenVAS", "Burp Suite", "Nikto", "Gobuster", "FFUF", "Hydra", "Metasploit", "Bettercap", "Dirsearch", "John the Ripper", "Hashcat", "STRIX Agent"]
+      category: "Sécurité Offensive",
+      skills: ["Nmap", "Wireshark", "Nessus", "OpenVAS", "Burp Suite", "Metasploit", "Hydra", "Hashcat", "John the Ripper", "FFUF", "Gobuster", "Nikto", "Bettercap"]
     },
     {
-      category: "Programmation & Scripts",
-      skills: ["Python", "Bash", "PowerShell", "JavaScript", "Java", "React", "SQL", "Git/GitHub"]
+      category: "Développement & Scripts",
+      skills: ["Python", "Bash", "PowerShell", "TypeScript", "JavaScript", "Java", "React", "FastAPI", "SQL", "PostgreSQL", "Git/GitHub"]
     },
     {
-      category: "IA & Data",
-      skills: ["Gemini API", "LangChain (bases)", "RAG", "Prompt Engineering", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Keras / TensorFlow (bases)"]
+      category: "Data & ML",
+      skills: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow / Keras", "Matplotlib"]
     }
   ],
   EXPERIENCE: [
     {
+      role: "Analyste Cybersécurité",
+      company: "Black Box Solutions",
+      logoUrl: "/assets/bbs-logo.png",
+      location: "Casablanca, Maroc",
+      period: "Février 2026 - Présent",
+      tasks: [
+        "Conception et développement d'AISOC (Aegis SOC Platform), un SOC piloté par l'IA pour le tri automatisé des alertes et la réponse aux incidents.",
+        "Conception d'un pipeline d'orchestration multi-agents « Hub-and-Swarm » (LangGraph) où un planificateur central dispatche des agents investigateurs spécialisés en parallèle sur les phases Triage, Investigation et Composition.",
+        "Mise en place de l'ingestion d'alertes de type Wazuh avec streaming temps réel vers le tableau de bord analyste (Socket.IO), mapping MITRE ATT&CK automatisé, recommandations de remédiation, ticketing et génération de rapports d'incident en Markdown.",
+        "Implémentation d'une résilience multi-modèles (fournisseurs OpenRouter avec fallback Ollama local), de niveaux de mémoire (recherche sémantique pgvector, historique d'IOC) et de court-circuitage des faux positifs pour l'efficacité.",
+        "Stack complète : frontend analyste React + Vite, backend Express + PostgreSQL (pgvector) avec authentification JWT."
+      ]
+    },
+    {
       role: "Stage Technique",
       company: "EVERNEX Maroc",
+      logoUrl: "/assets/evernex-logo.png",
       location: "Casablanca, Maroc",
       period: "Juillet - Août 2025",
       tasks: [
@@ -305,10 +372,20 @@ const DATA_FR: Data = {
   ],
   PROJECTS: [
     {
+      title: "AISOC — PLATEFORME SOC PILOTÉE PAR L'IA (AEGIS)",
+      tech: ["LangGraph", "LangChain", "OpenRouter", "Ollama", "PostgreSQL", "pgvector", "Express", "Socket.IO", "React", "TypeScript"],
+      description: "Un SOC (Security Operations Center) full-stack piloté par l'IA, automatisant le tri des alertes, l'investigation et la réponse aux incidents pour les analystes. Réalisé lors de mon stage chez Black Box Solutions.",
+      details: [
+        "Orchestration multi-agents « Hub-and-Swarm » (LangGraph) : un planificateur central dispatche des agents investigateurs spécialisés en parallèle sur les phases Triage, Investigation et Composition.",
+        "Ingestion d'alertes de type Wazuh avec streaming temps réel (Socket.IO) vers le tableau de bord analyste, mapping MITRE ATT&CK automatisé, recommandations de remédiation, ticketing et génération de rapports d'incident en Markdown.",
+        "Mémoire sémantique et historique d'IOC basés sur pgvector, résilience multi-modèles (fournisseurs OpenRouter avec fallback Ollama local) et court-circuitage des faux positifs pour l'efficacité.",
+        "Frontend analyste React + Vite avec un backend Express + PostgreSQL et authentification JWT."
+      ]
+    },
+    {
       title: "PLATEFORME D'AIDE À LA DÉCISION RCA AUGMENTÉE PAR RAG",
       tech: ["LangGraph", "LangChain", "Mistral 7B", "Ollama", "ChromaDB", "FastAPI", "React", "TypeScript"],
       description: "Conception d'une plateforme IA multi-agents accélérant l'analyse de cause racine (RCA) pour les ingénieurs de maintenance IT — entièrement locale, sans GPU, sans cloud.",
-      status: "En cours",
       details: [
         "Architecture à 6 agents (LangGraph) pour le parsing d'emails, l'analyse de logs, la génération de RCA, la planification d'actions et la validation — orchestrés via machine à états.",
         "Pipeline RAG avec ChromaDB pour la recherche sémantique dans les cas historiques, atteignant 80%+ de précision RCA.",
@@ -349,9 +426,9 @@ const DATA_FR: Data = {
   ],
   EDUCATION: [
     {
-      degree: "Élève Ingénieur en Réseaux et Sécurité Informatique",
+      degree: "Diplôme d'Ingénieur — Réseaux et Sécurité Informatique",
       institution: "ENIAD – Berkane",
-      year: "2023 - En cours",
+      year: "2023 - 2026",
       url: "http://eniad.ump.ma"
     },
     {
@@ -367,7 +444,7 @@ const DATA_FR: Data = {
     }
   ],
   CERTIFICATIONS: [
-    { name: "Cisco CCNA", status: "En cours", logoUrl: "/assets/CCNA_logo.png" },
+    { name: "Cisco CCNA", status: "Terminé", logoUrl: "/assets/CCNA_logo.png" },
     {
       name: "Fortinet NSE 1",
       status: "Terminé",
@@ -380,6 +457,28 @@ const DATA_FR: Data = {
       status: "Terminé",
       logoUrl: "/assets/NSE3_logo.png",
       imageUrl: "/assets/Fortinet Certified Associate in Cybersecurity_page-0001.jpg"
+    }
+  ],
+  ACHIEVEMENTS: [
+    {
+      title: "CTF MACC 2026 — Champions",
+      event: "Capture The Flag MACC 2026",
+      organizer: "DGSSI (Direction Générale de la Sécurité des Systèmes d'Information)",
+      placement: "🥇 1ère Place — Champions",
+      rank: "gold",
+      year: "2026",
+      description: "Champions du CTF national organisé par l'autorité nationale marocaine de cybersécurité (DGSSI), à travers des épreuves de sécurité offensive et défensive.",
+      imageUrl: "/assets/macc-2026-team.jpg"
+    },
+    {
+      title: "CTF AIAC — 3ème Place",
+      event: "Capture The Flag AIAC",
+      organizer: "AIAC",
+      placement: "🥉 3ème Place",
+      rank: "bronze",
+      description: "Troisième place face aux équipes concurrentes lors d'une compétition de cybersécurité multi-catégories.",
+      imageUrl: "/assets/aiac-2026-team.jpg",
+      imagePosition: "center top"
     }
   ],
   ENGAGEMENTS: [

@@ -3,9 +3,10 @@ import { DATA } from './constants';
 import { useLanguage } from './context/LanguageContext';
 import ParticleBackground from './components/ParticleBackground';
 import Taskbar from './components/Taskbar';
-import TopBar from './components/TopBar';
+import TopControls from './components/TopControls';
 import CertificationsBanner from './components/CertificationsBanner';
-import { Github, Linkedin, Mail, ExternalLink, Download, ChevronRight, Globe, Shield, Terminal, Database, Server, GraduationCap, Users, Video, Presentation, Command } from 'lucide-react';
+import AchievementsGallery from './components/AchievementsGallery';
+import { Github, Linkedin, Mail, ExternalLink, Download, ChevronRight, Globe, Shield, Terminal, Database, Server, GraduationCap, Users, Video, Presentation, Command, Trophy, Medal } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { motion } from 'framer-motion';
 
@@ -30,14 +31,20 @@ const scaleOnHover = {
 
 const App: React.FC = () => {
     const { language } = useLanguage();
-    const { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, ENGAGEMENTS, UI } = DATA[language];
+    const { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, ACHIEVEMENTS, ENGAGEMENTS, UI } = DATA[language];
+
+    const rankStyles: Record<string, { ring: string; text: string; bg: string; bar: string }> = {
+        gold: { ring: 'border-amber-400/40', text: 'text-amber-400', bg: 'bg-amber-400/10', bar: 'from-amber-400 to-yellow-600' },
+        silver: { ring: 'border-slate-300/40', text: 'text-slate-300', bg: 'bg-slate-300/10', bar: 'from-slate-300 to-slate-500' },
+        bronze: { ring: 'border-orange-400/40', text: 'text-orange-400', bg: 'bg-orange-400/10', bar: 'from-orange-400 to-amber-700' },
+    };
     const [showResumeSelection, setShowResumeSelection] = React.useState(false);
 
     return (
-        <div className="min-h-screen font-sans selection:bg-primary selection:text-text-main pt-8">
+        <div className="min-h-screen font-sans selection:bg-primary selection:text-text-main">
             <ParticleBackground />
             <Analytics />
-            <TopBar />
+            <TopControls />
             <Taskbar />
 
             <main className="relative z-10 pb-24 sm:pb-32">
@@ -164,7 +171,7 @@ const App: React.FC = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-text-main font-bold text-lg">{UI.systemSpecs}</h3>
-                                        <p className="text-text-muted text-sm font-mono">ENIAD // Engineering Student</p>
+                                        <p className="text-text-muted text-sm font-mono">ENIAD // Cybersecurity Engineer</p>
                                     </div>
                                 </div>
                                 <ul className="space-y-4 font-mono text-sm text-gray-300">
@@ -175,7 +182,7 @@ const App: React.FC = () => {
                                         <span>{UI.focusLabel}</span> <span className="text-text-main">Defensive Security</span>
                                     </li>
                                     <li className="flex justify-between border-b border-white/5 pb-2">
-                                        <span>{UI.experienceLabel}</span> <span className="text-text-main">3 Years (Academic + Ops)</span>
+                                        <span>{UI.experienceLabel}</span> <span className="text-text-main">3+ Years (Labs + Ops)</span>
                                     </li>
                                 </ul>
                                 {showResumeSelection ? (
@@ -215,14 +222,102 @@ const App: React.FC = () => {
                             <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-6 flex items-center gap-3">
                                 <span className="w-8 h-1 bg-primary rounded-full"></span> {UI.aboutMe}
                             </h2>
-                            <p className="text-text-muted leading-relaxed text-lg mb-6">
+                            <p className="text-text-muted leading-relaxed text-lg">
                                 {PROFILE.description}
                             </p>
-                            <div className="p-4 bg-primary/10 border-l-4 border-primary rounded-r-lg">
-                                <p className="text-primary italic font-medium">"{PROFILE.tagline}"</p>
-                            </div>
                         </motion.div>
                     </motion.div>
+                </section>
+
+                {/* Achievements Section */}
+                <section id="achievements" className="py-24 px-4">
+                    <div className="max-w-5xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-16"
+                        >
+                            <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 flex items-center justify-center gap-3">
+                                <Trophy className="text-amber-400" /> {UI.achievements}
+                            </h2>
+                            <p className="text-text-muted max-w-2xl mx-auto">{UI.achievementsDesc}</p>
+                        </motion.div>
+
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {ACHIEVEMENTS.map((item, idx) => {
+                                const style = rankStyles[item.rank] ?? rankStyles.gold;
+                                const CardWrapper = item.url ? 'a' : 'div';
+                                const cardProps = item.url ? { href: item.url, target: '_blank', rel: 'noreferrer' } : {};
+
+                                return (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.1 }}
+                                        whileHover={{ y: -6 }}
+                                    >
+                                        <CardWrapper
+                                            {...cardProps}
+                                            className={`block h-full bg-surfaceHighlight border border-white/5 rounded-2xl overflow-hidden hover:${style.ring} hover:shadow-2xl transition-all duration-300 group ${item.url ? 'cursor-pointer' : ''}`}
+                                        >
+                                            <div className={`h-1.5 bg-gradient-to-r ${style.bar}`}></div>
+
+                                            {/* Visual header: image when provided, else trophy emblem */}
+                                            <div className="h-72 bg-gradient-to-br from-background to-[#1a202c] flex items-center justify-center relative overflow-hidden">
+                                                {item.imageUrl ? (
+                                                    <img
+                                                        src={item.imageUrl}
+                                                        alt={item.title}
+                                                        loading="lazy"
+                                                        style={{ objectPosition: item.imagePosition || 'center' }}
+                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                    />
+                                                ) : (
+                                                    <>
+                                                        <div className={`absolute inset-0 ${style.bg} opacity-40`}></div>
+                                                        <div className={`relative z-10 w-20 h-20 rounded-full ${style.bg} flex items-center justify-center border ${style.ring} group-hover:scale-110 transition-transform duration-500`}>
+                                                            <Medal size={34} className={style.text} />
+                                                        </div>
+                                                    </>
+                                                )}
+                                            </div>
+
+                                            <div className="p-3">
+                                                <div className="flex items-start justify-between gap-3 mb-1.5">
+                                                    <h3 className="text-sm font-bold text-text-main leading-tight">{item.title}</h3>
+                                                    {item.year && (
+                                                        <span className="shrink-0 text-[10px] font-mono text-text-muted border border-white/10 rounded-full px-2 py-0.5">{item.year}</span>
+                                                    )}
+                                                </div>
+
+                                                <span className={`inline-flex items-center gap-1.5 text-[10px] font-semibold px-2 py-0.5 rounded-full ${style.bg} ${style.text} border ${style.ring} mb-1.5`}>
+                                                    {item.placement}
+                                                </span>
+
+                                                <div className="text-[11px] text-gray-400 mb-0.5 font-medium">{item.event}</div>
+                                                <div className="text-[10px] text-text-muted mb-1.5 flex items-center gap-1.5">
+                                                    <Shield size={11} className={style.text} /> {item.organizer}
+                                                </div>
+
+                                                {item.description && (
+                                                    <p className="text-[11px] text-gray-400 leading-snug">{item.description}</p>
+                                                )}
+
+                                                {item.url && (
+                                                    <div className={`mt-4 flex items-center gap-1.5 text-xs font-medium ${style.text}`}>
+                                                        View details <ExternalLink size={12} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </CardWrapper>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </section>
 
                 {/* Skills Section */}
@@ -300,7 +395,7 @@ const App: React.FC = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
                                     whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                                    className="group relative bg-surfaceHighlight border border-white/5 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 flex flex-col"
+                                    className="group relative glass-card border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 flex flex-col"
                                 >
                                     <div className="h-2 bg-gradient-to-r from-primary to-blue-600"></div>
                                     <div className="p-8 flex-1 flex flex-col">
@@ -356,7 +451,7 @@ const App: React.FC = () => {
                             {UI.professionalTimeline}
                         </motion.h2>
 
-                        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+                        <div className="space-y-20 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-primary/40">
                             {EXPERIENCE.map((exp, idx) => (
                                 <motion.div
                                     key={idx}
@@ -364,12 +459,16 @@ const App: React.FC = () => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.3 }}
                                     transition={{ duration: 0.6 }}
-                                    className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+                                    className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active md:after:content-[''] md:after:absolute md:after:top-1/2 md:after:-translate-y-1/2 md:after:h-0.5 md:after:w-16 md:after:bg-primary/30 md:group-odd:after:right-1/2 md:group-even:after:left-1/2"
                                 >
-                                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-surfaceHighlight group-[.is-active]:border-primary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-colors">
-                                        <Shield size={18} />
+                                    <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary/60 shadow-[0_0_0_4px_rgba(16,185,129,0.12)] shrink-0 overflow-hidden md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-colors ${exp.logoUrl ? 'bg-white' : 'bg-surfaceHighlight text-primary'}`}>
+                                        {exp.logoUrl ? (
+                                            <img src={exp.logoUrl} alt={exp.company} className="w-full h-full object-contain p-2" />
+                                        ) : (
+                                            <Shield size={18} />
+                                        )}
                                     </div>
-                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-xl border border-white/5 md:group-odd:mr-auto md:group-even:ml-auto hover:border-primary/30 transition-colors">
+                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] glass-card p-6 rounded-xl border border-white/5 md:group-odd:mr-auto md:group-even:ml-auto hover:border-primary/30 transition-colors">
                                         <div className="flex flex-col sm:flex-row justify-between mb-2">
                                             <h3 className="font-bold text-text-main text-lg">{exp.role}</h3>
                                             <span className="text-primary font-mono text-xs">{exp.period}</span>
@@ -509,6 +608,9 @@ const App: React.FC = () => {
                         </div>
                     </div>
                 </section >
+
+                {/* Achievements Photo Gallery (moving) */}
+                <AchievementsGallery />
 
                 {/* Footer */}
                 < footer id="contact" className="py-12 border-t border-white/5 relative z-10 bg-background mb-12" >

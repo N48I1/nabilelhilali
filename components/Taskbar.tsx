@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Cpu, Code, Shield, Mail, Monitor, Terminal, Users } from 'lucide-react';
+import { User, Cpu, Code, Shield, Mail, Monitor, Github, Users, Trophy } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Taskbar: React.FC = () => {
@@ -9,7 +9,7 @@ const Taskbar: React.FC = () => {
   useEffect(() => {
     // Scroll spy functionality to highlight active section
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'engagements', 'contact'];
+      const sections = ['hero', 'about', 'achievements', 'skills', 'projects', 'experience', 'engagements', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
@@ -30,11 +30,12 @@ const Taskbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { id: 'hero', icon: Monitor, label: language === 'fr' ? 'Système' : 'System' },
+    { id: 'hero', icon: Monitor, label: language === 'fr' ? 'Accueil' : 'Home' },
     { id: 'about', icon: User, label: language === 'fr' ? 'Profil' : 'Profile' },
-    { id: 'skills', icon: Cpu, label: 'Arsenal' },
-    { id: 'projects', icon: Code, label: language === 'fr' ? 'Opérations' : 'Operations' },
-    { id: 'experience', icon: Shield, label: language === 'fr' ? 'Journaux' : 'Logs' },
+    { id: 'achievements', icon: Trophy, label: language === 'fr' ? 'Distinctions' : 'Achievements' },
+    { id: 'skills', icon: Cpu, label: language === 'fr' ? 'Compétences' : 'Skills' },
+    { id: 'projects', icon: Code, label: language === 'fr' ? 'Projets' : 'Projects' },
+    { id: 'experience', icon: Shield, label: language === 'fr' ? 'Expérience' : 'Experience' },
     { id: 'engagements', icon: Users, label: language === 'fr' ? 'Communauté' : 'Community' },
   ];
 
@@ -101,9 +102,9 @@ const Taskbar: React.FC = () => {
           rel="noreferrer"
           className="group relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl text-gray-400 hover:text-text-main hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
         >
-          <Terminal className="w-5 h-5 sm:w-[22px] sm:h-[22px] group-hover:scale-105 transition-transform" />
+          <Github className="w-5 h-5 sm:w-[22px] sm:h-[22px] group-hover:scale-105 transition-transform" />
           <span className="hidden sm:block absolute -top-12 bg-[#1E2430] border border-white/10 text-text-main text-xs font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none shadow-xl">
-            Terminal
+            GitHub
             <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2430] border-r border-b border-white/10 rotate-45"></span>
           </span>
         </a>

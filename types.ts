@@ -13,6 +13,7 @@ export interface Experience {
   period: string;
   tasks: string[];
   imageUrl?: string;
+  logoUrl?: string;
 }
 
 export interface Education {
@@ -34,6 +35,19 @@ export interface Certification {
   logoUrl?: string;
   pdfUrl?: string;
   imageUrl?: string;
+}
+
+export interface Achievement {
+  title: string;
+  event: string;
+  organizer: string;
+  placement: string;
+  rank: 'gold' | 'silver' | 'bronze';
+  year?: string;
+  description?: string;
+  imageUrl?: string;
+  imagePosition?: string;
+  url?: string;
 }
 
 export interface Profile {
@@ -69,6 +83,8 @@ export interface UI {
   featuredOperationsDesc: string;
   viewGithub: string;
   professionalTimeline: string;
+  achievements: string;
+  achievementsDesc: string;
   academicBackground: string;
   communityTeaching: string;
   communityTeachingDesc: string;
