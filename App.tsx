@@ -261,12 +261,12 @@ const App: React.FC = () => {
                                     >
                                         <CardWrapper
                                             {...cardProps}
-                                            className={`block h-full bg-surfaceHighlight border border-white/5 rounded-2xl overflow-hidden hover:${style.ring} hover:shadow-2xl transition-all duration-300 group ${item.url ? 'cursor-pointer' : ''}`}
+                                            className={`block h-full bg-surfaceHighlight border border-white/5 rounded-2xl overflow-hidden shadow-sm hover:${style.ring} hover:shadow-2xl transition-all duration-300 group ${item.url ? 'cursor-pointer' : ''}`}
                                         >
                                             <div className={`h-1.5 bg-gradient-to-r ${style.bar}`}></div>
 
                                             {/* Visual header: image when provided, else trophy emblem */}
-                                            <div className="h-72 bg-gradient-to-br from-background to-[#1a202c] flex items-center justify-center relative overflow-hidden">
+                                            <div className="h-72 media-placeholder flex items-center justify-center relative overflow-hidden">
                                                 {item.imageUrl ? (
                                                     <img
                                                         src={item.imageUrl}
@@ -397,7 +397,6 @@ const App: React.FC = () => {
                                     whileHover={{ y: -8, transition: { duration: 0.2 } }}
                                     className="group relative glass-card border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 flex flex-col"
                                 >
-                                    <div className="h-2 bg-gradient-to-r from-primary to-blue-600"></div>
                                     <div className="p-8 flex-1 flex flex-col">
                                         <div className="flex items-start justify-between gap-3 mb-3">
                                             <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors">{project.title}</h3>
@@ -557,10 +556,10 @@ const App: React.FC = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
                                     whileHover={{ y: -5 }}
-                                    className="bg-surfaceHighlight rounded-2xl border border-white/5 overflow-hidden flex flex-col hover:border-primary/30 transition-colors group"
+                                    className="bg-surfaceHighlight rounded-2xl border border-white/5 overflow-hidden shadow-sm flex flex-col hover:border-primary/30 transition-colors group"
                                 >
                                     {/* Visual Header - Icon or Image */}
-                                    <div className="h-48 bg-gradient-to-br from-background to-[#1a202c] flex items-center justify-center relative overflow-hidden">
+                                    <div className="h-48 media-placeholder flex items-center justify-center relative overflow-hidden">
                                         {item.imageUrl ? (
                                             <React.Fragment>
                                                 <img

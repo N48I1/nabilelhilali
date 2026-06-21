@@ -85,18 +85,18 @@
 
     /* Light Mode Colors (Slate Palette) */
     :root.light {
-      --color-background: #F1F5F9;
+      --color-background: #EAEEF4;
       --color-surface: #FFFFFF;
-      --color-surfaceHighlight: #E2E8F0;
-      --color-primary: #059669;
-      --color-primaryDark: #047857;
+      --color-surfaceHighlight: #FFFFFF;
+      --color-primary: #047857;
+      --color-primaryDark: #065F46;
       --color-secondary: #2563EB;
       --color-text-main: #0F172A;
       --color-text-muted: #475569;
-      --color-border: rgba(0, 0, 0, 0.1);
-      --color-card-bg: rgba(255, 255, 255, 0.95);
-      --shadow-profile: 0 25px 50px -12px rgba(5, 150, 105, 0.2), 0 10px 40px rgba(0, 0, 0, 0.1);
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --color-border: rgba(15, 23, 42, 0.08);
+      --color-card-bg: #FFFFFF;
+      --shadow-profile: 0 20px 45px -15px rgba(4, 120, 87, 0.25), 0 10px 30px rgba(15, 23, 42, 0.10);
+      --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 28px -14px rgba(15, 23, 42, 0.18);
     }
 
     body {
@@ -253,13 +253,13 @@
       background-color: rgba(226, 232, 240, 0.5);
     }
 
-    /* Light mode primary glow fixes */
+    /* Light mode primary glow fixes (softened) */
     .light .bg-primary\/20 {
-      background-color: rgba(5, 150, 105, 0.15);
+      background-color: rgba(4, 120, 87, 0.08);
     }
 
     .light .bg-primary\/10 {
-      background-color: rgba(5, 150, 105, 0.08);
+      background-color: rgba(4, 120, 87, 0.06);
     }
 
     /* Light mode hover states */
@@ -273,7 +273,22 @@
 
     /* Light mode blur adjustments */
     .light .blur-\[80px\] {
-      filter: blur(60px);
+      filter: blur(70px);
+      opacity: 0.6;
+    }
+
+    /* Theme-aware media placeholder (card image headers / emblem backgrounds) */
+    .media-placeholder {
+      background: linear-gradient(135deg, var(--color-background), #1a202c);
+    }
+
+    .light .media-placeholder {
+      background: linear-gradient(135deg, #f1f5f9, #ffffff);
+    }
+
+    /* Animated pulse ring softer in light */
+    .light .animate-pulse {
+      opacity: 0.5;
     }
 
     /* Taskbar light mode */
