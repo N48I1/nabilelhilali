@@ -89,17 +89,20 @@ const DATA_EN: Data = {
   ],
   EXPERIENCE: [
     {
-      role: "Cybersecurity Analyst",
+      role: "Network & IT Security Engineer",
       company: "Black Box Solutions",
       logoUrl: "/assets/bbs-logo.png",
       location: "Casablanca, Morocco",
-      period: "February 2026 - Present",
+      period: "September 2024 - Present",
       tasks: [
-        "Designing and building AISOC (Aegis SOC Platform), an AI-driven Security Operations Center for automated alert triage and incident response.",
-        "Engineered a multi-agent \"Hub-and-Swarm\" orchestration pipeline (LangGraph) where a central planner dispatches specialized investigator agents in parallel across Triage, Investigation, and Composition phases.",
-        "Built Wazuh-style alert ingestion with real-time streaming to the analyst dashboard (Socket.IO), automated MITRE ATT&CK mapping, remediation guidance, ticketing, and Markdown incident-report generation.",
-        "Implemented multi-model LLM resilience (OpenRouter providers with local Ollama fallback) plus memory tiers (pgvector semantic search, IOC history) and false-positive short-circuiting for efficiency.",
-        "Full stack: React + Vite analyst frontend, Express + PostgreSQL (pgvector) backend with JWT authentication."
+        "Administered and monitored network security infrastructure based on FortiGate firewalls — firewall policy management, site-to-site and remote-access VPNs, traffic inspection, NAT rules, and security event monitoring.",
+        "Administered and configured enterprise network infrastructures including Cisco Switching & Routing and FortiSwitch environments.",
+        "Implemented SIEM-integrated EDR/XDR capabilities with Wazuh, YARA rules, and MISP for endpoint monitoring, IOC enrichment, alert correlation, and threat detection.",
+        "Administered and maintained virtualized infrastructures based on VMware ESXi and Proxmox VE, ensuring system availability, performance, and business continuity.",
+        "Implemented and managed network security controls — firewall policies, VLAN segmentation, access control mechanisms, and secure network architectures.",
+        "Participated in incident response activities, root cause analysis, and the implementation of corrective and preventive actions.",
+        "Developed technical documentation, operating procedures, and infrastructure diagrams to support operational excellence and knowledge sharing.",
+        "Collaborated with infrastructure, system, and security teams to ensure compliance with security standards and operational requirements."
       ]
     },
     {
@@ -107,12 +110,12 @@ const DATA_EN: Data = {
       company: "EVERNEX Morocco",
       logoUrl: "/assets/evernex-logo.png",
       location: "Casablanca, Morocco",
-      period: "July - August 2025",
+      period: "June - September 2023",
       tasks: [
         "Level 1 and Level 2 technical support, diagnosis, and incident resolution.",
-        "Intervention on essential equipment in client Data Centers (HPE, DELL, EMC²).",
-        "Technical Project: Design and Virtual Deployment of a Data Center Solution for Maroc Telecom RAN 5G 2025.",
-        "Preparation of Low-Level Design (LLD) for architecture.",
+        "On-site interventions on critical equipment in client Data Centers (HPE, Dell, EMC²).",
+        "Design and virtual deployment of a Data Center infrastructure solution.",
+        "Preparation of Low-Level Design (LLD) for the architecture.",
         "Network deployment simulation using EVE-NG."
       ]
     }
@@ -342,29 +345,32 @@ const DATA_FR: Data = {
   ],
   EXPERIENCE: [
     {
-      role: "Analyste Cybersécurité",
+      role: "Ingénieur Réseaux & Sécurité IT",
       company: "Black Box Solutions",
       logoUrl: "/assets/bbs-logo.png",
       location: "Casablanca, Maroc",
-      period: "Février 2026 - Présent",
+      period: "Septembre 2024 - Présent",
       tasks: [
-        "Conception et développement d'AISOC (Aegis SOC Platform), un SOC piloté par l'IA pour le tri automatisé des alertes et la réponse aux incidents.",
-        "Conception d'un pipeline d'orchestration multi-agents « Hub-and-Swarm » (LangGraph) où un planificateur central dispatche des agents investigateurs spécialisés en parallèle sur les phases Triage, Investigation et Composition.",
-        "Mise en place de l'ingestion d'alertes de type Wazuh avec streaming temps réel vers le tableau de bord analyste (Socket.IO), mapping MITRE ATT&CK automatisé, recommandations de remédiation, ticketing et génération de rapports d'incident en Markdown.",
-        "Implémentation d'une résilience multi-modèles (fournisseurs OpenRouter avec fallback Ollama local), de niveaux de mémoire (recherche sémantique pgvector, historique d'IOC) et de court-circuitage des faux positifs pour l'efficacité.",
-        "Stack complète : frontend analyste React + Vite, backend Express + PostgreSQL (pgvector) avec authentification JWT."
+        "Administration et supervision d'une infrastructure de sécurité réseau basée sur des pare-feux FortiGate — gestion des politiques de filtrage, VPN site-à-site et accès distant, inspection du trafic, règles NAT et surveillance des événements de sécurité.",
+        "Administration et configuration d'infrastructures réseau d'entreprise, incluant le Switching & Routing Cisco et les environnements FortiSwitch.",
+        "Mise en place de capacités EDR/XDR intégrées au SIEM avec Wazuh, règles YARA et MISP pour la surveillance des endpoints, l'enrichissement d'IOC, la corrélation d'alertes et la détection des menaces.",
+        "Administration et maintenance d'infrastructures virtualisées basées sur VMware ESXi et Proxmox VE, garantissant disponibilité, performance et continuité d'activité.",
+        "Mise en œuvre et gestion de contrôles de sécurité réseau — politiques de pare-feu, segmentation VLAN, mécanismes de contrôle d'accès et architectures réseau sécurisées.",
+        "Participation aux activités de réponse aux incidents, à l'analyse des causes racines et à la mise en œuvre d'actions correctives et préventives.",
+        "Rédaction de documentation technique, de procédures d'exploitation et de schémas d'infrastructure pour soutenir l'excellence opérationnelle et le partage des connaissances.",
+        "Collaboration avec les équipes infrastructure, systèmes et sécurité pour assurer la conformité aux standards de sécurité et aux exigences opérationnelles."
       ]
     },
     {
-      role: "Stage Technique",
+      role: "Stage de fin d'année",
       company: "EVERNEX Maroc",
       logoUrl: "/assets/evernex-logo.png",
       location: "Casablanca, Maroc",
-      period: "Juillet - Août 2025",
+      period: "Juin - Septembre 2023",
       tasks: [
         "Support technique Niveau 1 et Niveau 2, diagnostic et résolution d'incidents.",
-        "Intervention sur équipements essentiels dans les Data Centers clients (HPE, DELL, EMC²).",
-        "Projet Technique : Conception et déploiement virtuel d'une solution Data Center pour Maroc Telecom RAN 5G 2025.",
+        "Interventions sur site sur des équipements critiques dans les Data Centers clients (HPE, Dell, EMC²).",
+        "Conception et déploiement virtuel d'une solution d'infrastructure Data Center.",
         "Préparation du Low-Level Design (LLD) pour l'architecture.",
         "Simulation de déploiement réseau avec EVE-NG."
       ]
